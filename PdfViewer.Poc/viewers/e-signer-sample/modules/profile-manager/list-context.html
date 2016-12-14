@@ -1,0 +1,28 @@
+<div class="pcc-list-context-item <%= (selected) ? 'pcc-active' : '' %>" 
+     data-pcc-esign-item="<%= signature %>">
+    <div class="pcc-esign-display">
+        <div class="pcc-esign-preview-container">
+            <div class="pcc-esign-preview" data-pcc-preview></div>
+        </div>
+    </div>
+    <div class="pcc-esign-preview-actions">
+        <% if (selected) { %>
+            <button class="pcc-styled-button" 
+                    data-pcc-esign-button="remove"
+                    data-pcc-esign-for="<%= signature %>"><%= language.esignRemoveFromDocument %></button>
+        <% } else { %>
+            <button class="pcc-styled-button" 
+                    data-pcc-esign-button="update"
+                    data-pcc-esign-for="<%= signature %>"><%= language.esignApplyToDocument %></button>
+        <% } %>
+        
+        <% if (signature !== 'unknown') { %>
+            <button class="pcc-button pcc-pull-right" 
+                    data-pcc-esign-button="delete"
+                    data-pcc-esign-for="<%= signature %>"
+                    title="<%= language.deleteButton %>">
+                <span data-pcc-icon="pcc-icon-trash"></span>
+            </button>
+        <% } %>
+    </div>
+</div>

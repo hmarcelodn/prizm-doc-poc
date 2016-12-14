@@ -1,0 +1,27 @@
+<div class="pcc-fieldlist">
+    <div class="pcc-title">
+        <button data-pcc-component="buttonset"
+                data-pcc-name="dragTrigger"
+                data-pcc-value="true"
+                class="pcc-button pcc-drag-trigger">
+            <span data-pcc-icon="pcc-icon-sort" title="<%= data.language.reorderFields %>"></span>
+        </button>
+        
+        <div><%= data.language.formFields %></div>
+    </div>
+    
+    <% if (data.fields && data.fields.length) { %> 
+        <div class="pcc-list-parent">
+            <% _.forEach(data.fields, function(field) { %>
+                <div class="pcc-field" data-pcc-mark-id="<%= field.markId %>" data-pcc-field>
+                    <span class="pcc-pull-right pcc-handle" data-pcc-icon="pcc-icon-reorder-handle"></span>
+                    <span data-pcc-icon="<%= data.icons[field.template] %>"></span>
+                    <span class="pcc-display-name"><%= field.displayName || field.fieldId || 'No name' %></span>
+                </div>
+            <% }); %>
+        </div>
+       
+    <% } else { %>
+        <div class="pcc-empty-message"><%= data.language.noFieldAvailable %></div>
+    <% } %>
+</div>

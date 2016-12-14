@@ -1,0 +1,67 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+
+.pcc-zoom-fit {
+    width: 100%;
+    height: 100%;
+    background: teal;
+}
+
+.pcc-zoom-percent {
+    cursor: pointer;
+}
+
+.pcc-zoomfit ul {
+    position: absolute;
+    display: block;
+    top: 100%;
+    width: 200px;
+    background: @white_gray;
+    color: @font_dark;
+    padding: 0;
+    list-style: none;
+    font-size: 1.2em;
+    line-height: 1;
+    white-space: nowrap;
+            
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease;
+    will-change: height, max-height;
+    box-sizing: border-box;
+            
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    
+    &.pcc-show {
+        top: 100%;
+        max-height: 450px;
+        border: 1px solid @middle_gray;
+        border-radius: 2px 2px 0 0;
+        border-bottom: 0;
+        box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.4);
+    }
+    
+    li {
+        border-top: 1px solid @white;
+        border-bottom: 1px solid @middle_gray;
+        padding: 6px 8px;
+        cursor: pointer;
+        
+        &:last-of-type {
+            border-bottom: 0;
+        }
+        
+        &:hover {
+            background: @highlight_light;
+            border-top-color: @highlight_light;
+        }
+    }
+    
+    .pcc-separator { 
+        background: @middle_gray;
+        height: 4px;
+    }
+}

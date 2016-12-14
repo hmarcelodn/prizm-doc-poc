@@ -1,0 +1,111 @@
+// CSS polyfil mixins
+
+.text-size-adjust (@percent: 100%) {
+    -webkit-text-size-adjust: @percent;
+        -ms-text-size-adjust: @percent;
+            text-size-adjust: @percent;
+}
+
+.user-select (@val) {
+    -webkit-user-select: @val;
+       -moz-user-select: @val;
+        -ms-user-select: @val;
+            user-select: @val;
+}
+
+.box-sizing(@val: content-box) {
+    -webkit-box-sizing: @val;
+       -moz-box-sizing: @val;
+            box-sizing: @val;
+}
+
+.box-shadow(@val) {
+    -webkit-box-shadow: @val;
+            box-shadow: @val;
+}
+
+.transition(@val) {
+    -webkit-transition: @val;
+            transition: @val;
+}
+
+.transform(@val) {
+    -webkit-transform: @val;
+        -ms-transform: @val;
+            transform: @val;
+}
+
+.background-size(@val) {
+    -webkit-background-size: @val @val;
+            background-size: @val;
+}
+
+.opacity(@val) {
+    -moz-opacity: (@val / 100);
+         opacity: (@val / 100);
+
+    filter: Alpha(Opacity=@val);
+}
+
+.animation(@val) {
+    -webkit-animation: @val;
+            animation: @val;
+}
+
+// helper mixins
+
+.textInput() {
+    &::-ms-clear {
+        display: none;
+    }
+}
+
+.fillContainer() {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.buttonShadow() {
+    .box-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+.buttonBorder() {
+    border: 1px solid @light_gray;
+    border-radius: 2px;
+    background: @white_gray;
+}
+
+// Keyframe animation factory
+.keyframes(@animationName, @rules0: {}, @rules100: {}) {
+    @-webkit-keyframes @animationName {
+        0% { @rules0(); }
+        100% { @rules100(); }
+    }
+
+    @keyframes @animationName {
+        0% { @rules0(); }
+        100% { @rules100(); }
+    }
+}
+
+// Animate spinning around the z-axis.
+.zAxisSpin(@animationName, @rotation: 360deg, @duration: 1s, @rules0: {}, @rules100: {}) {
+    .animation(@animationName @duration linear infinite);
+
+    .keyframes(@animationName, {
+        .transform( rotate(0deg) );
+        @rules0();
+    }, {
+        .transform( rotate(@rotation) );
+        @rules100();
+    });
+}
+
+.clockwiseSpin(@duration: 1s, @animationName: pcc-clockwise-spin, @rules0: {}, @rules100: {}) {
+    .zAxisSpin(@animationName, 360deg, @duration, @rules0, @rules100);
+}
+
+.counterClockwiseSpin(@duration: 1s, @animationName: pcc-counter-clockwise-spin, @rules0: {}, @rules100: {}) {
+    .zAxisSpin(@animationName, -360deg, @duration, @rules0, @rules100);
+}

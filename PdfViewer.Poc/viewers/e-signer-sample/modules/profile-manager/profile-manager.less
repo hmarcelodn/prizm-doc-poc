@@ -1,0 +1,115 @@
+@import (reference) "../common/_breakpoints.less";
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+@import (reference) "../common/_overlay.less";
+
+.pcc-profile-manager, 
+.pcc-signature-context,
+.pcc-signature-list {
+    .fillContainer();
+}
+
+.pcc-profile-manager {
+    .pcc-overlay {
+        .overlay();
+
+        .pcc-overlay-container {
+            max-width: 600px;
+            max-height: 400px;
+            width: 96%;
+            height: 96%;
+
+            .legacyView({
+                width: 600px;
+                height: 400px;
+            });
+
+            overflow: auto;
+
+            & > div {
+                .fillContainer();
+                max-height: 100%;
+                padding: 5px;
+            }
+        }
+
+        .pcc-pull-left { float: left; }
+        .pcc-pull-right { float: right; }
+    }
+
+    .pcc-viewset {
+        height: 100%;
+        padding-top: 20px;
+        padding-bottom: 30px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pcc-viewcontainer {
+        position: absolute;
+        top: 30px;
+        bottom: 40px;
+        width: 100%;
+        overflow: auto;
+    }
+
+    .pcc-layer-up {
+        position: absolute;
+        bottom: 3px;
+        width: 100%;
+        z-index: 100;
+    }
+}
+
+.pcc-signature-disambiguation {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    
+    button {
+        display: inline-block;
+        margin: auto;
+        font-size: 1.2em;
+        height: 2em;
+        
+        .buttonBorder();
+        .buttonShadow();
+    }
+}
+
+.pcc-signature-list-buttons {
+    button {
+        
+        @buttonWidth: 31%;
+        @margin: ((100% - (@buttonWidth * 3)) / 4);
+        
+        .box-sizing(border-box);
+        
+        float: left;
+        width: @buttonWidth;
+        margin-left: @margin;
+        height: 2em;
+        
+        .buttonBorder();
+        
+        &[data-pcc-esign-button=done] {
+            margin-right: @margin;
+        }
+    }
+}
+
+.pcc-profile-manager-close-button {
+    display: inline-block;
+    position: absolute;
+    height: auto !important;
+    top: 5px;
+    right: 0;
+    font-size: 1.2em;
+    background: @white_gray;
+    z-index: 100;
+}

@@ -1,0 +1,40 @@
+{
+  "name": "pcc-e-signer",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build -p",
+    "builddev": "gulp build",
+    "icons": "gulp svgstore",
+    "watch": "gulp watch",
+    "watchn": "gulp watch -n",
+    "docs": "jsdoc -c jsdoc.json -r modules"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.11",
+    "gulp-util": "~3.0.4",
+    "webpack": "~1.7.3",
+    "underscore": "~1.8.3",
+    "underscore-template-loader": "~0.2.5",
+    "style-loader": "~0.9.0",
+    "less": "~2.5.0",
+    "less-loader": "~2.2.0",
+    "extract-text-webpack-plugin": "~0.5.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-run": "~1.6.7",
+    "gulp-svgstore": "~5.0.0",
+    "gulp-svgmin": "~1.1.2",
+    "file-loader": "~0.8.1",
+    "html-loader": "~0.2.3",
+    "gulp-svgfallback": "~3.0.1",
+    "gulp-cheerio": "~0.6.2",
+    "gulp-filter": "~2.0.2",
+    "node-notifier": "~4.2.1",
+    "yargs": "~3.9.1",
+    "run-sequence": "~1.1.0",
+    "css-raw-loader": "~0.1.0",
+    "jsdoc": "~3.3.0",
+    "jshint": "^2.8.0"
+  }
+}

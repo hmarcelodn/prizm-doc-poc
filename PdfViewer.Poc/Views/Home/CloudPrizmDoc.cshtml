@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "CloudPrizmDoc";
+}
+
+<h2>CloudPrizmDoc</h2>
+
+<div id="accusoft_viewer"></div>
+<script type="text/javascript">
+    var viewerParams = {
+        document: "https://www.ebi.ac.uk/luscombe/docs/imia_review.pdf",
+        key: "2qFGTeYr92El0QbkhSR2WTRFMLwQNZD9WMMJPf_3ISr2oEU89nbNxPm3ph86K2vE",
+        viewertype: "html5",
+        viewerheight: "600",
+        viewerwidth: "100%",
+        upperToolbarColor: "757a7a",
+        lowerToolbarColor: "000000",
+        bottomToolbarColor: "000000",
+        backgroundColor: "757a7a",
+        fontColor: "ffffff",
+        buttonColor: "white",
+        hidden: "esign,redact"
+    }
+</script>
+<script src="//api.accusoft.com/v1/viewer/js?container=accusoft_viewer&key=2qFGTeYr92El0QbkhSR2WTRFMLwQNZD9WMMJPf_3ISr2oEU89nbNxPm3ph86K2vE"></script>

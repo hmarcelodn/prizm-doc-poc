@@ -1,0 +1,22 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+@import (reference) "../common/_breakpoints.less";
+
+.pcc-form-name {
+    position: relative;
+    display: inline-block;
+    font-size: 1.2em;
+    max-width: 33%;
+    overflow: hidden;
+    padding-left: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 1;
+    
+    .mobileView({
+    	display: block;
+        width: 100%;
+        max-width: none;
+        text-align: center;
+    });
+}

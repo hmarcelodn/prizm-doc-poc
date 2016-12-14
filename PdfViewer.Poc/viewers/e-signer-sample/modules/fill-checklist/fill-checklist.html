@@ -1,0 +1,8 @@
+<div class="pcc-checklist">
+    <% _.each(data.items, function(item) { var itemId = item.groupId || item.markId; %>
+    <div class="pcc-field <%= (itemId === data.lastActiveItemId) ? 'pcc-active' : '' %>" data-pcc-item-id="<%= itemId %>" data-pcc-field>
+        <span data-pcc-icon="<%= getIcon(item) %>"></span>
+        <span class="pcc-display-name"><%= item.displayName || item.fieldId || 'No name' %></span>
+    </div>
+    <% }); %>
+</div>

@@ -1,0 +1,143 @@
+<div class="pcc-fieldedit">
+    <div class="pcc-title">
+        <button data-pcc-back data-pcc-icon="pcc-icon-previous-page"></button>
+        <% if (data.template === "SignatureTemplate") { %>
+            <%= language.signature %>
+        <% } else if (data.template === "InitialsTemplate") { %>
+            <%= language.initials %>
+        <% } else if (data.template === "TextTemplate") { %>
+            <%= language.textbox %>
+        <% } else if (data.template === "DateTemplate") { %>
+            <%= language.date %>
+        <% } else if (data.template === "CheckboxTemplate") { %>
+            <%= language.checkbox %>
+        <% } %>
+        <button data-pcc-delete class="pcc-button pcc-pull-right" title="<%= language.deleteButton %>">
+            <span data-pcc-icon="pcc-icon-trash"></span>
+        </button>
+        <button data-pcc-duplicate class="pcc-button pcc-pull-right" title="<%= language.duplicate %>">
+            <span data-pcc-icon="pcc-icon-copy"></span>
+        </button>
+    </div>
+    <% if (data.markId !== undefined) { %>
+        <span data-pcc-component="checkboxcollection" 
+              data-pcc-name="required"
+              data-pcc-value="required"
+              data-pcc-label="<%= language.required %>"
+              class="pcc-margin"></span>
+
+        <% if (data.template === "TextTemplate") { %>
+            <span data-pcc-component="checkboxcollection"
+                  data-pcc-name="multiline"
+                  data-pcc-value="multiline"
+                  data-pcc-label="<%= language.multiline %>"
+                  class="pcc-margin"></span>
+        <% } %>
+
+        <div class="pcc-margin"><%= language.fieldId %></div>
+        <div data-pcc-component="textinput" data-pcc-name="fieldId" class="pcc-textbox"></div>
+
+        <div class="pcc-margin"><%= language.displayName %></div>
+        <div data-pcc-component="textinput" data-pcc-name="displayName" class="pcc-textbox"></div>
+
+        <% if (formRoles) { %>
+            <div class="pcc-margin"><%= language.role %></div>
+            <div data-pcc-component="dropdown"
+                 data-pcc-name="formRole"
+                 data-pcc-default="<%= formRoles.selected %>"
+                 class="pcc-select">
+                <% _.each(formRoles.list, function(formRole) { %>
+                    <div data-pcc-value="<%= formRole.formRoleId %>"><%= formRole.displayName %></div>
+                <% }); %>
+            </div>
+        <% } %>
+
+        <% if (data.template === 'CheckboxTemplate') { %>
+            <div class="pcc-margin"><%= language.checkboxGroup %></div>
+            <div data-pcc-component="dropdown"
+                 data-pcc-name="group"
+                 data-pcc-default="<%= groups.selected %>"
+                 class="pcc-select">
+                <div data-pcc-value="none"><%= language.groupNone %></div>
+                <% _.each(groups.list, function(group) { if (group.type !== 'checkbox') { return; }  %>
+                    <div data-pcc-value="<%= group.groupId %>"><%= group.displayName %></div>
+                <% }); %>
+                <div data-pcc-value="new"><%= language.checkboxGroupNew %></div>
+            </div>
+
+            <div class="pcc-new-group">
+                <button data-pcc-new-group-submit class="pcc-button pcc-pull-right" title="<%= language.groupSave %>">
+                    <span data-pcc-icon="pcc-icon-check"></span>
+                </button>
+                <div data-pcc-component="textinput"
+                     data-pcc-name="newGroup"
+                     data-pcc-placeholder="<%= language.groupEnterName %>"
+                     data-pcc-submit
+                     class="pcc-textbox pcc-margin"></div>
+            </div>
+
+            <div data-pcc-component="checkboxcollection"
+                 data-pcc-name="multipleSelections"
+                 data-pcc-value="true"
+                 data-pcc-label="<%= language.checkboxGroupMultipleSelections %>"
+                 class="pcc-margin"></div>
+        <% } %>
+
+        <% if (data.template === "TextTemplate" || data.template === "DateTemplate") { %>
+            <hr>
+            <div class="pcc-margin"><%= language.font %></div>
+            <div class="pcc-select pcc-margin" data-pcc-component="dropdown" data-pcc-name="font" data-pcc-default="UseGlobalFontNameSetting">
+                <div data-pcc-value="UseGlobalFontNameSetting"><%= language.fontUseGlobalSetting %></div>
+                <div data-pcc-value="PT Mono"><%= language.fontMonospaced %></div>
+                <div data-pcc-value="Fira Sans"><%= language.fontSansSerif %></div>
+                <div data-pcc-value="PT Serif"><%= language.fontSerif %></div>
+                <div data-pcc-value="Grand Hotel"><%= language.fontHandwriting %></div>
+            </div>
+            
+            <div class="pcc-margin"><%= language.color %></div>
+            <div class="pcc-select pcc-select-color pcc-margin" data-pcc-component="dropdown" data-pcc-name="fontColor" data-pcc-default="UseGlobalFontColorSetting">
+                <div data-pcc-value="UseGlobalFontColorSetting" class="pcc-select-use-global"><%= language.useGlobalSetting %></div>
+                <div data-pcc-value="#ff0000" style="background:#ff0000"></div>
+                <div data-pcc-value="#ffff00" style="background:#ffff00"></div>
+                <div data-pcc-value="#f7941d" style="background:#f7941d"></div>
+                <div data-pcc-value="#00ff00" style="background:#00ff00"></div>
+                <div data-pcc-value="#00ffff" style="background:#00ffff"></div>
+                <div data-pcc-value="#ff00ff" style="background:#ff00ff"></div>
+                <div data-pcc-value="#6666ff" style="background:#6666ff"></div>
+                <div data-pcc-value="#cccccc" style="background:#cccccc"></div>
+                <div data-pcc-value="#ffffff" style="background:#ffffff"></div>
+                <div data-pcc-value="#cc0000" style="background:#cc0000"></div>
+                <div data-pcc-value="#999900" style="background:#999900"></div>
+                <div data-pcc-value="#a3620a" style="background:#a3620a"></div>
+                <div data-pcc-value="#00a651" style="background:#00a651"></div>
+                <div data-pcc-value="#0000ff" style="background:#0000ff"></div>
+                <div data-pcc-value="#92278f" style="background:#92278f"></div>
+                <div data-pcc-value="#3333cc" style="background:#3333cc"></div>
+                <div data-pcc-value="#888888" style="background:#888888"></div>
+                <div data-pcc-value="#000000" style="background:#000000"></div>
+            </div>
+
+            <% if (data.template === "TextTemplate") { %>
+                <div class="pcc-select-font-size pcc-hide">
+                    <div class="pcc-margin"><%= language.fontSize %></div>
+                    <div class="pcc-select pcc-margin" data-pcc-component="dropdown" data-pcc-name="fontSize"
+                         data-pcc-default="8">
+                        <div data-pcc-value="6"><%= language.fontSizeValues.size1 %></div>
+                        <div data-pcc-value="8"><%= language.fontSizeValues.size2 %></div>
+                        <div data-pcc-value="10"><%= language.fontSizeValues.size3 %></div>
+                        <div data-pcc-value="12"><%= language.fontSizeValues.size4 %></div>
+                        <div data-pcc-value="14"><%= language.fontSizeValues.size5 %></div>
+                        <div data-pcc-value="16"><%= language.fontSizeValues.size6 %></div>
+                        <div data-pcc-value="18"><%= language.fontSizeValues.size7 %></div>
+                        <div data-pcc-value="20"><%= language.fontSizeValues.size8 %></div>
+                        <div data-pcc-value="22"><%= language.fontSizeValues.size9 %></div>
+                        <div data-pcc-value="24"><%= language.fontSizeValues.size10 %></div>
+                    </div>
+                </div>
+
+                <div class="pcc-margin"><%= language.characterLimit %></div>
+                <div data-pcc-component="textinput" data-pcc-name="characterLimit" class="pcc-textbox"></div>
+            <% } %>
+        <% } %>
+    <% } %>
+</div>

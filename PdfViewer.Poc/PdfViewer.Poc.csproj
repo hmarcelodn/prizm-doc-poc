@@ -1,0 +1,1042 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F1B93A6-1B70-4ECB-A0CE-9B295E563D77}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PdfViewer.Poc</RootNamespace>
+    <AssemblyName>PdfViewer.Poc</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="FlexPaper\images\" />
+    <Folder Include="viewers\e-signature-splash\js\" />
+    <Folder Include="viewers\splash-pages\css\" />
+    <Folder Include="viewers\splash-pages\font\" />
+    <Folder Include="viewers\splash-pages\img\" />
+    <Folder Include="viewers\splash-pages\js\" />
+    <Folder Include="viewers\splash\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\FullViewerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PccController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pcc\PccConfig.cs" />
+    <Compile Include="Models\Pcc\PrizmApplicationServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FlexPaper\flexpaper.css" />
+    <Content Include="Content\FlexPaper\flexpaper_flat.css" />
+    <Content Include="Content\FlexPaper\locale\bg_BG\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\cz_CS\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\de_DE\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\dn_DN\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\el_EL\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\en_US\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\es_ES\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\fi_FN\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\fr_FR\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\he_IL\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\hu_HU\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\it_IT\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\ja_JP\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\lt_LT\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\nl_NL\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\no_NO\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\pl_PL\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\pt_BR\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\pt_PT\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\pv_FN\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\ru_RU\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\se_SE\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\sk_SK\FlexPaper_sk.txt" />
+    <Content Include="Content\FlexPaper\locale\tr_TR\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\zh_CN\FlexPaper.txt" />
+    <Content Include="Content\FlexPaper\locale\zh_TW\FlexPaper.txt" />
+    <Content Include="Content\PrizmDoc\fonts.css" />
+    <Content Include="Content\legacy.css" />
+    <Content Include="Content\PrizmDoc\normalize.min.css" />
+    <Content Include="Content\PrizmDoc\viewer.css" />
+    <Content Include="Content\PrizmDoc\viewercontrol.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="FlexPaper\UI_flexpaper_annotations.html" />
+    <Content Include="FlexPaper\UI_flexpaper_desktop.html" />
+    <Content Include="FlexPaper\UI_flexpaper_desktop_flat.html" />
+    <Content Include="FlexPaper\UI_flexpaper_mobile.html" />
+    <Content Include="FlexPaper\UI_flexpaper_mobile_flat.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="pcc.config" />
+    <Content Include="Content\FlexPaper\locale\ko_KR\FlexPaper.properties" />
+    <Content Include="FlexPaper\pdf\Paper.pdf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\FlexPaper\expressInstall.swf" />
+    <Content Include="Scripts\FlexPaper\flexpaper.js" />
+    <Content Include="Scripts\FlexPaper\FlexPaperViewer.js" />
+    <Content Include="Scripts\FlexPaper\flexpaper_flashhandlers_htmlui.js" />
+    <Content Include="Scripts\FlexPaper\flexpaper_handlers.js" />
+    <Content Include="Scripts\FlexPaper\flexpaper_handlers_debug.js" />
+    <Content Include="Scripts\FlexPaper\jquery.extensions.min.js" />
+    <Content Include="Scripts\FlexPaper\jquery.min.js" />
+    <Content Include="Scripts\FlexPaper\pdf.min.js" />
+    <Content Include="Scripts\FlexPaper\pdf.worker.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\PrizmDoc\html5shiv.js" />
+    <Content Include="Scripts\PrizmDoc\jquery.hotkeys.min.js" />
+    <Content Include="Scripts\PrizmDoc\underscore.min.js" />
+    <Content Include="Scripts\PrizmDoc\viewer.js" />
+    <Content Include="Scripts\PrizmDoc\viewercontrol.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="viewers\book-reader-sample\index.html" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\css\style.css" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\css\viewercontrol.css" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\fonts\icomoon.svg" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\Gruntfile.js" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\img\preloader.gif" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\js\html5shiv.js" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\js\jquery-1.10.2.min.js" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\js\jquery.hotkeys.min.js" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\js\reader.js" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\js\sample-config.js" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\js\underscore.min.js" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\js\viewercontrol.js" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\ico-moon.css" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\templates\viewerTemplate.html" />
+    <Content Include="viewers\e-signature-splash\assets\css\fontello.css" />
+    <Content Include="viewers\e-signature-splash\assets\css\splash.css" />
+    <Content Include="viewers\e-signature-splash\assets\font\fontello.svg" />
+    <Content Include="viewers\e-signature-splash\assets\img\accusoft_logo.png" />
+    <Content Include="viewers\e-signature-splash\assets\img\favicon.ico" />
+    <Content Include="viewers\e-signature-splash\assets\js\e-signature-splash.js" />
+    <Content Include="viewers\e-signature-splash\assets\js\jquery-1.10.2.min.js" />
+    <Content Include="viewers\e-signature-splash\assets\js\main-splash.js" />
+    <Content Include="viewers\e-signature-splash\assets\js\splash-config.js" />
+    <Content Include="viewers\e-signer-sample\Gulpfile.js" />
+    <Content Include="viewers\e-signer-sample\index.html" />
+    <Content Include="viewers\e-signer-sample\modules\common\sample-config.js" />
+    <Content Include="viewers\e-signer-sample\modules\common\viewer-init.js" />
+    <Content Include="viewers\e-signer-sample\modules\core\core-common.js" />
+    <Content Include="viewers\e-signer-sample\modules\core\core.html" />
+    <Content Include="viewers\e-signer-sample\modules\core\core.js" />
+    <Content Include="viewers\e-signer-sample\modules\data-persist\data-persist.js" />
+    <Content Include="viewers\e-signer-sample\modules\date-picker\date-picker.js" />
+    <Content Include="viewers\e-signer-sample\modules\date-picker\pikaday.css" />
+    <Content Include="viewers\e-signer-sample\modules\date-picker\pikaday.js" />
+    <Content Include="viewers\e-signer-sample\modules\download-signed-form-trigger\download-signed-form-trigger.html" />
+    <Content Include="viewers\e-signer-sample\modules\download-signed-form-trigger\download-signed-form-trigger.js" />
+    <Content Include="viewers\e-signer-sample\modules\download-signed-form\download-signed-form.html" />
+    <Content Include="viewers\e-signer-sample\modules\download-signed-form\download-signed-form.js" />
+    <Content Include="viewers\e-signer-sample\modules\elements\button-set.js" />
+    <Content Include="viewers\e-signer-sample\modules\elements\checkbox-collection.js" />
+    <Content Include="viewers\e-signer-sample\modules\elements\dropdown.js" />
+    <Content Include="viewers\e-signer-sample\modules\elements\text-input.js" />
+    <Content Include="viewers\e-signer-sample\modules\event-store\event-store.js" />
+    <Content Include="viewers\e-signer-sample\modules\fill-checklist\fill-checklist.html" />
+    <Content Include="viewers\e-signer-sample\modules\fill-checklist\fill-checklist.js" />
+    <Content Include="viewers\e-signer-sample\modules\fill-form-controller\fill-form-controller.js" />
+    <Content Include="viewers\e-signer-sample\modules\fill-main-toolbar\fill-main-toolbar.html" />
+    <Content Include="viewers\e-signer-sample\modules\fill-main-toolbar\fill-main-toolbar.js" />
+    <Content Include="viewers\e-signer-sample\modules\fill-progress\fill-progress.html" />
+    <Content Include="viewers\e-signer-sample\modules\fill-progress\fill-progress.js" />
+    <Content Include="viewers\e-signer-sample\modules\form-summary\form-summary.js" />
+    <Content Include="viewers\e-signer-sample\modules\keyboard-controller\jquery.hotkeys.min.js" />
+    <Content Include="viewers\e-signer-sample\modules\keyboard-controller\keyboard-controller.js" />
+    <Content Include="viewers\e-signer-sample\modules\notification\notification.html" />
+    <Content Include="viewers\e-signer-sample\modules\notification\notification.js" />
+    <Content Include="viewers\e-signer-sample\modules\page-navigation\page-navigation.html" />
+    <Content Include="viewers\e-signer-sample\modules\page-navigation\page-navigation.js" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\drawing-context.html" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\drawing-context.js" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\list-context.html" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\list-context.js" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\profile-manager.html" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\profile-manager.js" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\type-context.html" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\type-context.js" />
+    <Content Include="viewers\e-signer-sample\modules\state-store\state-store.js" />
+    <Content Include="viewers\e-signer-sample\modules\svg-icons\svg-icons.css" />
+    <Content Include="viewers\e-signer-sample\modules\svg-icons\svg-icons.js" />
+    <Content Include="viewers\e-signer-sample\modules\svg-icons\svg-icons.png" />
+    <Content Include="viewers\e-signer-sample\modules\svg-icons\svg-icons.svg" />
+    <Content Include="viewers\e-signer-sample\modules\template-io\template-io.js" />
+    <Content Include="viewers\e-signer-sample\modules\template-name-header\template-name-header.html" />
+    <Content Include="viewers\e-signer-sample\modules\template-name-header\template-name-header.js" />
+    <Content Include="viewers\e-signer-sample\modules\zoom-fit\zoom-fit.html" />
+    <Content Include="viewers\e-signer-sample\modules\zoom-fit\zoom-fit.js" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\css\bundle.css" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\css\viewercontrol.css" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg-icons.png" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\ban.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\bold.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\calendar.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\check.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\checkbox.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\checklist.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\circle-check.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\circle-star.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\combo-box.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\comment.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\copy.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\document.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\download.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\ellipses.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\empty-circle.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\first-page.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\folder.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\gear.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\grid.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\hand.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\horizontal-align-center.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\horizontal-align-left.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\horizontal-align-right.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\initials.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\italic.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\last-page.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\loading.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\magic-wand.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\match-size-horizontal.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\match-size-vertical.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\menu.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\minus.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\next-page.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\plus.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\previous-page.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\printer.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\radio-button.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\reorder-handle.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\retry.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\save.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\settings.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\signature.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\sort.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\star.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\strikethrough.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\text-align-center.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\text-align-left.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\text-align-right.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\text-box.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\thunderbolt.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\trash.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\underline.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\upload.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\user.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\vertical-align-bottom.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\vertical-align-center.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\vertical-align-top.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\warning.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\img\svg\x.svg" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\js\bundle.js" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\js\jquery-1.11.3.min.js" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\js\underscore-min.js" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\js\viewercontrol.js" />
+    <Content Include="viewers\e-signer-sample\webpack.config.js" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\css\fonts.css" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\css\legacy.css" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\css\normalize.min.css" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\css\viewer.css" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\css\viewercontrol.css" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\Gulpfile.js" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\alert.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\all.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-arrow.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-disabled.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-ellipse-filled.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-ellipse.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-freehand.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-line.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-polyline.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-rectangle-filled.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-rectangle.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-stamp.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate-text.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotate.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\annotation-add.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\beginswith.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\border-width.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\check.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\circle.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\comment.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\context.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\current.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\datestamp.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\delete.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\download.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\endswith.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\esign.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\exactword.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\external-link.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\eye-closed.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\filter.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\firstpage.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\fitcontent.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\freehandSign.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\fullscreen.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\hamburger-menu.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\highlight.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\image-stamp.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\imageSign.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\landscape.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\lastpage.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\layer-back.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\layer-backward.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\layer-forward.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\layer-front.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\link.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\list.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\load.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\loader.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\magnifiertool.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\matchcase.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\nextpage.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\opacity.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\page.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\pantool.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\paperclip.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\place.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\portrait.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\prevpage.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\print.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\proximity.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\pushpin.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\range.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\rectanglezoomtool.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\redact-textselection.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\redact-transparent.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\redact.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\redactionViewMode.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\rotate-doc-cc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\rotate-doc-cw.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\rotate-page-cc.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\rotate-page-cw.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\save.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\search-quick-actions.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\search.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\text-bold.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\text-center.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\text-italic.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\text-left.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\text-right.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\text-strikeout.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\text-underline.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\textSign.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\texttool.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\thumbnails.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\triangle-down.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\triangle-up.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\updown.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\view.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\wholeword.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\wildcard.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\wrench.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\x.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\zoomin.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\svg\zoomout.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\EditTextMark%402x.png" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\EditTextMark.png" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\icons%402x.png" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\icons.png" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\icons.white%402x.png" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\icons.white.png" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\placeSignatureCursor.cur" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\ban.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\bold.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\calendar.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\check.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\checkbox.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\checklist.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\circle-check.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\circle-star.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\combo-box.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\comment.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\copy.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\document.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\download.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\ellipses.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\empty-circle.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\first-page.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\folder.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\gear.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\grid.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\hand.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\horizontal-align-center.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\horizontal-align-left.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\horizontal-align-right.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\initials.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\italic.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\last-page.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\loading.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\magic-wand.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\match-size-horizontal.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\match-size-vertical.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\menu.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\minus.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\next-page.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\plus.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\previous-page.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\printer.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\radio-button.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\reorder-handle.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\retry.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\save.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\settings.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\signature.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\sort.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\star.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\strikethrough.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\text-align-center.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\text-align-left.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\text-align-right.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\text-box.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\thunderbolt.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\trash.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\underline.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\upload.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\user.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\vertical-align-bottom.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\vertical-align-center.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\vertical-align-top.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\warning.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\img\svg\x.svg" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\js\html5shiv.js" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\js\jquery-1.10.2.min.js" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\js\jquery.hotkeys.min.js" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\js\underscore.min.js" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\js\viewer.js" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\js\viewercontrol.js" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\commentTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\contextMenuTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\copyOverlayTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\downloadOverlayTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\esignOverlayTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\hyperlinkMenuTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\imageStampOverlayTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\overwriteOverlayTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\pageRedactionOverlayTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\printOverlayTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\printTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\redactionReasonTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\unsavedChangesOverlayTemplate.html" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\templates\viewerTemplate.html" />
+    <Content Include="viewers\splash\assets\css\fontello.css" />
+    <Content Include="viewers\splash\assets\css\splash.css" />
+    <Content Include="viewers\splash\assets\font\fontello.svg" />
+    <Content Include="viewers\splash\assets\img\accusoft_logo.png" />
+    <Content Include="viewers\splash\assets\img\favicon.ico" />
+    <Content Include="viewers\splash\assets\js\e-signature-splash.js" />
+    <Content Include="viewers\splash\assets\js\jquery-1.10.2.min.js" />
+    <Content Include="viewers\splash\assets\js\main-splash.js" />
+    <Content Include="viewers\splash\assets\js\splash-config.js" />
+    <Content Include="viewers\template-designer-sample\Gulpfile.js" />
+    <Content Include="viewers\template-designer-sample\index.html" />
+    <Content Include="viewers\template-designer-sample\modules\common\sample-config.js" />
+    <Content Include="viewers\template-designer-sample\modules\common\viewer-init.js" />
+    <Content Include="viewers\template-designer-sample\modules\core\core-common.js" />
+    <Content Include="viewers\template-designer-sample\modules\core\core.html" />
+    <Content Include="viewers\template-designer-sample\modules\core\core.js" />
+    <Content Include="viewers\template-designer-sample\modules\data-persist\data-persist.js" />
+    <Content Include="viewers\template-designer-sample\modules\elements\button-set.js" />
+    <Content Include="viewers\template-designer-sample\modules\elements\checkbox-collection.js" />
+    <Content Include="viewers\template-designer-sample\modules\elements\dropdown.js" />
+    <Content Include="viewers\template-designer-sample\modules\elements\text-input.js" />
+    <Content Include="viewers\template-designer-sample\modules\event-store\event-store.js" />
+    <Content Include="viewers\template-designer-sample\modules\field-edit\field-edit.html" />
+    <Content Include="viewers\template-designer-sample\modules\field-edit\field-edit.js" />
+    <Content Include="viewers\template-designer-sample\modules\field-list\field-list.html" />
+    <Content Include="viewers\template-designer-sample\modules\field-list\field-list.js" />
+    <Content Include="viewers\template-designer-sample\modules\form-controller\form-controller.js" />
+    <Content Include="viewers\template-designer-sample\modules\form-tools\form-tools.html" />
+    <Content Include="viewers\template-designer-sample\modules\form-tools\form-tools.js" />
+    <Content Include="viewers\template-designer-sample\modules\global-settings-menu\global-settings-menu.html" />
+    <Content Include="viewers\template-designer-sample\modules\global-settings-menu\global-settings-menu.js" />
+    <Content Include="viewers\template-designer-sample\modules\global-settings-trigger\global-settings-trigger.html" />
+    <Content Include="viewers\template-designer-sample\modules\global-settings-trigger\global-settings-trigger.js" />
+    <Content Include="viewers\template-designer-sample\modules\keyboard-controller\jquery.hotkeys.min.js" />
+    <Content Include="viewers\template-designer-sample\modules\keyboard-controller\keyboard-controller.js" />
+    <Content Include="viewers\template-designer-sample\modules\multiple-selection\multiple-selection.html" />
+    <Content Include="viewers\template-designer-sample\modules\multiple-selection\multiple-selection.js" />
+    <Content Include="viewers\template-designer-sample\modules\notification\notification.html" />
+    <Content Include="viewers\template-designer-sample\modules\notification\notification.js" />
+    <Content Include="viewers\template-designer-sample\modules\page-navigation\page-navigation.html" />
+    <Content Include="viewers\template-designer-sample\modules\page-navigation\page-navigation.js" />
+    <Content Include="viewers\template-designer-sample\modules\state-store\state-store.js" />
+    <Content Include="viewers\template-designer-sample\modules\svg-icons\svg-icons.css" />
+    <Content Include="viewers\template-designer-sample\modules\svg-icons\svg-icons.js" />
+    <Content Include="viewers\template-designer-sample\modules\svg-icons\svg-icons.png" />
+    <Content Include="viewers\template-designer-sample\modules\svg-icons\svg-icons.svg" />
+    <Content Include="viewers\template-designer-sample\modules\template-io\template-io.js" />
+    <Content Include="viewers\template-designer-sample\modules\template-manager\template-manager.html" />
+    <Content Include="viewers\template-designer-sample\modules\template-manager\template-manager.js" />
+    <Content Include="viewers\template-designer-sample\modules\zoom-fit\zoom-fit.html" />
+    <Content Include="viewers\template-designer-sample\modules\zoom-fit\zoom-fit.js" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\css\bundle.css" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\css\viewercontrol.css" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg-icons.png" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\ban.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\bold.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\calendar.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\check.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\checkbox.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\checklist.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\circle-check.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\circle-star.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\combo-box.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\comment.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\copy.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\document.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\download.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\ellipses.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\empty-circle.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\first-page.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\folder.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\gear.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\grid.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\hand.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\horizontal-align-center.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\horizontal-align-left.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\horizontal-align-right.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\initials.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\italic.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\last-page.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\loading.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\magic-wand.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\match-size-horizontal.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\match-size-vertical.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\menu.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\minus.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\next-page.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\plus.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\previous-page.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\printer.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\radio-button.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\reorder-handle.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\retry.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\save.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\settings.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\signature.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\sort.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\star.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\strikethrough.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\text-align-center.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\text-align-left.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\text-align-right.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\text-box.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\thunderbolt.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\trash.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\underline.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\upload.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\user.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\vertical-align-bottom.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\vertical-align-center.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\vertical-align-top.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\warning.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\img\svg\x.svg" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\js\bundle.js" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\js\jquery-1.11.3.min.js" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\js\underscore-min.js" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\js\viewercontrol.js" />
+    <Content Include="viewers\template-designer-sample\webpack.config.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\PrizmDoc.cshtml" />
+    <Content Include="Views\FullViewer\Index.cshtml" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\fonts\icomoon.eot" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\fonts\icomoon.ttf" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\fonts\icomoon.woff" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\js\underscore-min.map" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\languages\en-US.json" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\base.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\copy.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\grid.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\icons.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\main.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\patch.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\search.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\thumbnails.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\components\variables.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\less\style.less" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\package.json" />
+    <Content Include="viewers\book-reader-sample\viewer-assets\selection.json" />
+    <Content Include="viewers\book-reader-sample\web.config" />
+    <Content Include="viewers\e-signature-splash\assets\font\fontello.eot" />
+    <Content Include="viewers\e-signature-splash\assets\font\fontello.ttf" />
+    <Content Include="viewers\e-signature-splash\assets\font\fontello.woff" />
+    <Content Include="viewers\e-signer-sample\jsdoc.json" />
+    <Content Include="viewers\e-signer-sample\layout.tmpl" />
+    <Content Include="viewers\e-signer-sample\modules\common\_breakpoints.less" />
+    <Content Include="viewers\e-signer-sample\modules\common\_buttons.less" />
+    <Content Include="viewers\e-signer-sample\modules\common\_fonts.less" />
+    <Content Include="viewers\e-signer-sample\modules\common\_mixins.less" />
+    <Content Include="viewers\e-signer-sample\modules\common\_overlay.less" />
+    <Content Include="viewers\e-signer-sample\modules\common\_variables.less" />
+    <Content Include="viewers\e-signer-sample\modules\core\core.less" />
+    <Content Include="viewers\e-signer-sample\modules\date-picker\date-picker.less" />
+    <Content Include="viewers\e-signer-sample\modules\download-signed-form-trigger\download-signed-form-trigger.less" />
+    <Content Include="viewers\e-signer-sample\modules\download-signed-form\download-signed-form.less" />
+    <Content Include="viewers\e-signer-sample\modules\elements\button-set.less" />
+    <Content Include="viewers\e-signer-sample\modules\elements\dropdown.less" />
+    <Content Include="viewers\e-signer-sample\modules\elements\text-input.less" />
+    <Content Include="viewers\e-signer-sample\modules\fill-checklist\fill-checklist.less" />
+    <Content Include="viewers\e-signer-sample\modules\fill-main-toolbar\fill-main-toolbar.less" />
+    <Content Include="viewers\e-signer-sample\modules\fill-progress\fill-progress.less" />
+    <Content Include="viewers\e-signer-sample\modules\notification\notification.less" />
+    <Content Include="viewers\e-signer-sample\modules\page-navigation\page-navigation.less" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\drawing-context.less" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\list-context.less" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\profile-manager.less" />
+    <Content Include="viewers\e-signer-sample\modules\profile-manager\type-context.less" />
+    <Content Include="viewers\e-signer-sample\modules\svg-icons\svg-icons.less" />
+    <Content Include="viewers\e-signer-sample\modules\template-name-header\template-name-header.less" />
+    <Content Include="viewers\e-signer-sample\modules\zoom-fit\zoom-fit.less" />
+    <Content Include="viewers\e-signer-sample\npm-shrinkwrap.json" />
+    <Content Include="viewers\e-signer-sample\package.json" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.eot" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.ttf" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.woff" />
+    <Content Include="viewers\e-signer-sample\viewer-assets\languages\en-US.json" />
+    <Content Include="viewers\full-viewer-sample\predefinedSearch.json" />
+    <Content Include="viewers\full-viewer-sample\redactionReason.json" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.eot" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.ttf" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.woff" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\icons\template.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\js\underscore-min.map" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\languages\en-US.json" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\icons.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_breakpoints.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_dialogs.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_fonts.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_grid.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_helpers.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_icons.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_inputs.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_inputs_custom.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_layout.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_mixins.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_offsets.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_overrides.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_slider.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\base\_variables.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\overlays\_copyOverlay.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\overlays\_eSignatureOverlay.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\overlays\_imageStampOverlay.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\overlays\_printOverlay.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_annotationLayerReview.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_annotationLoadSave.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_attachments.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_comments.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_contextMenu.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_download.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_hyperlinkMenu.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_immediateActionMenu.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_loader.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_notification.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_overlay.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_redactionReasonMenu.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_search.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_thumbnails.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\components\_tools.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\fonts.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\legacy.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\less\viewer.less" />
+    <Content Include="viewers\full-viewer-sample\viewer-assets\package.json" />
+    <Content Include="viewers\splash\assets\font\fontello.eot" />
+    <Content Include="viewers\splash\assets\font\fontello.ttf" />
+    <Content Include="viewers\splash\assets\font\fontello.woff" />
+    <Content Include="viewers\template-designer-sample\jsdoc.json" />
+    <Content Include="viewers\template-designer-sample\layout.tmpl" />
+    <Content Include="viewers\template-designer-sample\modules\common\_breakpoints.less" />
+    <Content Include="viewers\template-designer-sample\modules\common\_buttons.less" />
+    <Content Include="viewers\template-designer-sample\modules\common\_fonts.less" />
+    <Content Include="viewers\template-designer-sample\modules\common\_mixins.less" />
+    <Content Include="viewers\template-designer-sample\modules\common\_overlay.less" />
+    <Content Include="viewers\template-designer-sample\modules\common\_variables.less" />
+    <Content Include="viewers\template-designer-sample\modules\core\core.less" />
+    <Content Include="viewers\template-designer-sample\modules\elements\button-set.less" />
+    <Content Include="viewers\template-designer-sample\modules\elements\dropdown.less" />
+    <Content Include="viewers\template-designer-sample\modules\elements\text-input.less" />
+    <Content Include="viewers\template-designer-sample\modules\field-edit\field-edit.less" />
+    <Content Include="viewers\template-designer-sample\modules\field-list\field-list.less" />
+    <Content Include="viewers\template-designer-sample\modules\form-tools\form-tools.less" />
+    <Content Include="viewers\template-designer-sample\modules\global-settings-menu\global-settings-menu.less" />
+    <Content Include="viewers\template-designer-sample\modules\global-settings-trigger\global-settings-trigger.less" />
+    <Content Include="viewers\template-designer-sample\modules\multiple-selection\multiple-selection.less" />
+    <Content Include="viewers\template-designer-sample\modules\notification\notification.less" />
+    <Content Include="viewers\template-designer-sample\modules\page-navigation\page-navigation.less" />
+    <Content Include="viewers\template-designer-sample\modules\svg-icons\svg-icons.less" />
+    <Content Include="viewers\template-designer-sample\modules\template-manager\template-manager.less" />
+    <Content Include="viewers\template-designer-sample\modules\zoom-fit\zoom-fit.less" />
+    <Content Include="viewers\template-designer-sample\npm-shrinkwrap.json" />
+    <Content Include="viewers\template-designer-sample\package.json" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\04fcd4e29b919131ee9aed0486bf333152169927.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.eot" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.ttf" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\fonts\ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.woff" />
+    <Content Include="viewers\template-designer-sample\viewer-assets\languages\en-US.json" />
+    <Content Include="Views\Home\CloudPrizmDoc.cshtml" />
+    <Content Include="Views\Home\FlexPaper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58779</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58779/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

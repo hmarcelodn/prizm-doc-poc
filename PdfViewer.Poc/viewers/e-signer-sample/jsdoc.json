@@ -1,0 +1,22 @@
+{
+    "sources": {
+        "include": ["modules"],
+        "exclude": []
+    },
+    "opts": {
+        "encoding": "utf8",
+        "recurse": true,
+        "destination": "./docs/"
+    },
+    "templates": {
+        "default": {
+            "outputSourceFiles": false,
+            "layoutFile": "./layout.tmpl"
+        }
+    },
+	"plugins": ["plugins/markdown"],
+	"markdown": {
+		"parser": "gfm",
+		"tags": [ "exceptions", "params", "see", "fires", "listens" ]
+	}
+}

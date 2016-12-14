@@ -1,0 +1,28 @@
+@import (reference) "_variables.less";
+@import (reference) "_mixins.less";
+
+.absoluteEntireContainer() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.overlay() {
+    &, .pcc-overlay-backing, .pcc-overlay-container {
+        .absoluteEntireContainer();
+    }
+    
+    .pcc-overlay-backing {
+        background: #000;
+        .opacity(50);
+    }
+    
+    .pcc-overlay-container {
+        background: @lightest_gray;
+        margin: auto;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,124 @@
+<div class="pcc-global-settings-menu">
+    <div class="pcc-overlay" data-pcc-overlay>
+        <div class="pcc-overlay-backing" data-pcc-overlay-backing></div>
+        <div class="pcc-overlay-container" data-pcc-overlay-container>
+            <div data-pcc-overlay-content class="pcc-overlay-content">
+                <button class="pcc-global-settings-close-button" data-pcc-global-settings-close>
+                    <span data-pcc-icon="pcc-icon-x"></span>
+                </button>
+                <div class="pcc-global-settings-title"><%= language.globalTemplateSettingsTitle %></div>
+
+                <div class="pcc-global-settings-tabs">
+                    <button data-pcc-component="buttonset"
+                            data-pcc-name="settingsTab"
+                            data-pcc-value="font"
+                            data-pcc-toggle="on"
+                            class="pcc-button pcc-default">
+                        <%= language.font %>
+                    </button>
+                    <button data-pcc-component="buttonset"
+                            data-pcc-name="settingsTab"
+                            data-pcc-value="roles"
+                            data-pcc-toggle="on"
+                            class="pcc-button">
+                        <%= language.roles %>
+                    </button>
+                </div>
+
+                <div class="pcc-global-settings-pane" data-pcc-settings-pane="font">
+                    <div class="pcc-global-settings-elements-wrapper">
+                        <div class="pcc-margin"><%= language.font %></div>
+                        <div data-pcc-component="dropdown"
+                             data-pcc-name="font"
+                             data-pcc-default="Fira Sans"
+                             class="pcc-select pcc-margin">
+                            <div data-pcc-value="PT Mono"><%= language.fontMonospaced %></div>
+                            <div data-pcc-value="Fira Sans"><%= language.fontSansSerif %></div>
+                            <div data-pcc-value="PT Serif"><%= language.fontSerif %></div>
+                            <div data-pcc-value="Grand Hotel"><%= language.fontHandwriting %></div>
+                        </div>
+                    </div>
+                    <div class="pcc-global-settings-elements-wrapper">
+                        <div class="pcc-margin"><%= language.color %></div>
+                        <div data-pcc-component="dropdown"
+                             data-pcc-name="fontColor"
+                             data-pcc-default="#000000"
+                             class="pcc-select pcc-select-color pcc-margin">
+                            <div data-pcc-value="#ff0000" style="background:#ff0000"></div>
+                            <div data-pcc-value="#ffff00" style="background:#ffff00"></div>
+                            <div data-pcc-value="#f7941d" style="background:#f7941d"></div>
+                            <div data-pcc-value="#00ff00" style="background:#00ff00"></div>
+                            <div data-pcc-value="#00ffff" style="background:#00ffff"></div>
+                            <div data-pcc-value="#ff00ff" style="background:#ff00ff"></div>
+                            <div data-pcc-value="#6666ff" style="background:#6666ff"></div>
+                            <div data-pcc-value="#cccccc" style="background:#cccccc"></div>
+                            <div data-pcc-value="#ffffff" style="background:#ffffff"></div>
+                            <div data-pcc-value="#cc0000" style="background:#cc0000"></div>
+                            <div data-pcc-value="#999900" style="background:#999900"></div>
+                            <div data-pcc-value="#a3620a" style="background:#a3620a"></div>
+                            <div data-pcc-value="#00a651" style="background:#00a651"></div>
+                            <div data-pcc-value="#0000ff" style="background:#0000ff"></div>
+                            <div data-pcc-value="#92278f" style="background:#92278f"></div>
+                            <div data-pcc-value="#3333cc" style="background:#3333cc"></div>
+                            <div data-pcc-value="#888888" style="background:#888888"></div>
+                            <div data-pcc-value="#000000" style="background:#000000"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pcc-global-settings-pane" data-pcc-settings-pane="roles">
+                    <div class="pcc-global-settings-elements-wrapper">
+                        <div class="pcc-margin"><%= language.roleName %></div>
+
+                        <% if (!_.isEmpty(formRoles.colors)) { %>
+                            <div class="pcc-new-role">
+                                <button data-pcc-global-settings-new-role-submit class="pcc-button pcc-pull-right" title="Save Role">
+                                    <span data-pcc-icon="pcc-icon-check"></span>
+                                </button>
+                                <div data-pcc-component="textinput"
+                                     data-pcc-name="newRole"
+                                     data-pcc-submit
+                                     class="pcc-textbox pcc-margin"></div>
+                            </div>
+
+                            <div class="pcc-global-settings-role-color">
+                                <div class="pcc-margin"><%= language.color %></div>
+                                <div data-pcc-component="dropdown"
+                                     data-pcc-name="fieldColor"
+                                     data-pcc-default="<%= formRoles.colors[0] %>"
+                                     class="pcc-select pcc-select-color pcc-margin">
+
+                                    <% _.each(formRoles.colors, function(color) { %>
+                                        <div data-pcc-value="<%= color %>" style="background:<%= color %>"></div>
+                                    <% }); %>
+                                </div>
+                            </div>
+                        <% } else { %>
+                            <div class="pcc-global-settings-formRole-none"><%= language.roleCannotCreateMore %></div>
+                        <% } %>
+                    </div>
+
+                    <div class="pcc-global-settings-elements-wrapper">
+                        <div class="pcc-margin"><%= language.roles %></div>
+
+                        <% if (!_.isEmpty(formRoles.list)) { %>
+                            <% _.each(formRoles.list, function(formRole) { %>
+                                <div class="pcc-global-settings-formRole" data-pcc-global-settings-form-role-id="<%= formRole.formRoleId %>" style="color: <%= formRole.fieldColor %>">
+                                    <span class="pcc-global-settings-formRole-name"><%= formRole.displayName %></span>
+                                    <button data-pcc-global-settings-form-role-delete class="pcc-button pcc-pull-right">&times;</button>
+                                </div>
+                            <% }); %>
+                        <% } else { %>
+                            <div class="pcc-global-settings-formRole-none"><%= language.roleNoneCreated %></div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="pcc-global-settings-controls">
+                    <button data-pcc-global-settings-cancel class="pcc-button pcc-pull-right"><%= language.cancel %></button>
+                    <button data-pcc-global-settings-done class="pcc-button pcc-pull-right"><%= language.done %></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

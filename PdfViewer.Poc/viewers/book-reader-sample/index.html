@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>PrizmDoc Bookreader Demo</title>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="viewer-assets/js/jquery-1.10.2.min.js"><\/script>');</script>
+    <script src="viewer-assets/js/underscore.min.js"></script>
+
+    <script src="viewer-assets/js/viewercontrol.js"></script>
+
+    <link rel="stylesheet" href="viewer-assets/css/viewercontrol.css">
+    <link rel="stylesheet" href="viewer-assets/css/style.css"/>
+
+    <!-- only needed for full viewer example -->
+    <script src="viewer-assets/js/reader.js"></script>
+
+    <!-- Configuration information used for this sample. -->
+    <script src="sample-config.js"></script>
+</head>
+<body>
+   
+    <div id="reader" class="pccv">
+        <div class="preloader">
+            <img src="viewer-assets/img/preloader.gif"/><span>Demo is loading...</span><br>
+            <small class="viewer-warning">JavaScript is required for the viewer demo.</small>
+        </div>
+    </div>
+    
+    <script>
+        var query = (function parseQuery() {
+            var query = {};
+            var temp = window.location.search.substring(1).split('&');
+            for (var i = temp.length; i--;) {
+                var q = temp[i].split('=');
+                query[q.shift()] = decodeURIComponent(q.join('='));
+            }
+            return query;
+        })();
+      
+        // setup -- you probably already have this, so you can ignore it
+        function createSession(filename) {
+            return jQuery.ajax({
+                url: sampleConfig.imageHandlerUrl + '/CreateSession',
+                data: {
+                    document: filename
+                },
+                cache: false
+            }).then(function (response) {
+                return response.viewingSessionId || response.documentID;
+            });
+        }
+        
+        function getTemplate(templateName) {
+            return jQuery.ajax({url: templateName})
+                .then(function (response) {
+                    return response;
+                });
+        }
+
+        function getJson(fileName) {
+            return jQuery.ajax({ url: fileName })
+                .then(function (response) {
+                    // IIS Express will not use the correct MIME type for json, so we may need to parse it as a string        
+                    if (typeof response === 'string') {
+                        return JSON.parse(response);
+                    }
+
+                    return response;
+                });
+        }
+        
+        function getResourcesAndEmbedViewer(demoConfig) {
+            var filename = query.document || 'PdfDemoSample.pdf';
+
+            var demoConfig = {
+                options: {
+                    imageHandlerUrl: sampleConfig.imageHandlerUrl,
+                    resourcePath: sampleConfig.viewerAssetsPath + '/img'
+                },
+                onViewerConfig: function(){},
+                imageHandlerUrl: sampleConfig.imageHandlerUrl,
+                resourcePath: sampleConfig.viewerAssetsPath + '/img'
+            };
+            
+            jQuery.when(
+                filename, // args[0]
+                createSession(filename), // args[1]
+                getTemplate(sampleConfig.viewerAssetsPath + '/templates/viewerTemplate.html'), // args[2]
+                getJson(sampleConfig.viewerAssetsPath + '/languages/' + sampleConfig.languageFile), // args[3]
+                demoConfig.options || {}, // args[4]
+                demoConfig.onViewerCreation) // args[5]
+                .done(buildViewerOptions);
+        }
+        
+        function buildViewerOptions(){
+            var args = [].slice.call(arguments);
+
+            var onViewerCreation = args.pop(); // always last arg
+            var optionsOverride = args.pop(); // always next to last arg
+
+            var options = {
+                documentDisplayName: args[0],
+                documentID: args[1],
+                template: {
+                    viewer: args[2]
+                },
+                language: args[3],
+                annotationID: 'uniqueUserId',
+                resourcePath: 'viewer-assets/img'
+            };
+
+            var combinedOptions = _.extend(optionsOverride, options);
+            
+            embedViewer(combinedOptions);
+        }
+        
+        function embedViewer(options){
+            var viewer = $('#reader').pccBookreader(options);
+        }
+        
+        $(document).ready(function(){
+            getResourcesAndEmbedViewer({});
+        });
+    </script>
+</body>
+</html>

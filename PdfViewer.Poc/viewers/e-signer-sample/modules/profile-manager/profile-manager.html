@@ -1,0 +1,59 @@
+<div class="pcc-profile-manager">
+    <div class="pcc-overlay" data-pcc-overlay>
+        <div class="pcc-overlay-backing" data-pcc-overlay-backing></div>
+        <div class="pcc-overlay-container" data-pcc-overlay-container>
+            <div data-pcc-overlay-content>
+                <button class="pcc-profile-manager-close-button" data-pcc-cancel>
+                    <span data-pcc-icon="pcc-icon-x"></span>
+                </button>
+                <% if (mode === 'signature') { %>
+                    
+                    <div class="pcc-signature-context">
+                        <div class="pcc-viewset">
+                            <div class="pcc-viewcontainer" data-pcc-view-container></div>    
+                        </div>
+                        <div class="pcc-layer-up">
+                            <div class="pcc-pull-right">
+                                <button class="pcc-right" data-pcc-cancel><%= language.cancel %></button>
+                                <button class="pcc-right" data-pcc-save>
+                                    <span data-pcc-icon="pcc-icon-save"></span>
+                                    <label><%= language.save %></label>
+                                </button>
+                            </div>
+                            <div class="pcc-pull-left">
+                                <span data-pcc-component="checkboxcollection" 
+                                      data-pcc-name="setSigDefault"
+                                      data-pcc-value="true"
+                                      data-pcc-checked
+                                      data-pcc-label="<%= language.esignSetAsDefault %>"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <% } else if (mode === 'select') { %>
+                    
+                    <div class="pcc-signature-disambiguation">
+                        <p><%= category === 'initials' ? language.esignNoCurrentInitials : language.esignNoCurrentSignatures %></p>
+                        <button data-pcc-signature="FreehandSignature"><%= category === 'initials' ? language.esignDrawNewInitials : language.esignDrawNewSignature %></button>
+                        <p><%= language.or %></p>
+                        <button data-pcc-signature="TextSignature"><%= category === 'initials' ? language.esignTypeNewInitials : language.esignTypeNewSignature %></button>
+                    </div>
+                    
+                <% } else if (mode === 'manage') { %>
+                    
+                    <div class="pcc-signature-list">
+                        <div class="pcc-viewset">
+                            <div class="pcc-viewcontainer" data-pcc-view-container></div>
+                        </div>
+                        <div class="pcc-layer-up pcc-signature-list-buttons">
+                            <button data-pcc-esign-button="drawNew" title="<%= language.esignDrawNewSignature %>"><%= category === 'initials' ? language.esignDrawNewInitials : language.esignDrawNewSignature %></button>
+                            <button data-pcc-esign-button="typeNew" title="<%= language.esignTypeNewSignature %>"><%= category === 'initials' ? language.esignTypeNewInitials : language.esignTypeNewSignature %></button>
+                            <button data-pcc-esign-button="done" title="><%= language.done %>"><%= language.done %></button>
+                        </div>
+                    </div>
+                    
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>   

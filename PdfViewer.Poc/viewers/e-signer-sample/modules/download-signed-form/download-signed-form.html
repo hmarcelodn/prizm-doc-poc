@@ -1,0 +1,60 @@
+<div class="pcc-download-signed-form-menu">
+    <div class="pcc-overlay" data-pcc-overlay>
+        <div class="pcc-overlay-backing" data-pcc-overlay-backing></div>
+        <div class="pcc-overlay-container" data-pcc-overlay-container>
+            <button class="pcc-download-signed-form-close-button" data-pcc-download-signed-form-close>
+                <span data-pcc-icon="pcc-icon-x"></span>
+            </button>
+            <div class="pcc-download-signed-form-title"><%= language.downloadSignedFormDialog.title %></div>
+
+            <% if (options && options.mode === 'pending') { %>
+
+            <div class= "pcc-download-signed-form-warning">
+                <div class="pcc-margin pcc-status-bar">
+                    <div data-pcc-icon="pcc-icon-loading" class="pcc-loader pcc-pull-left"></div>
+                    <span class="pcc-status"><%= language.downloadSignedFormDialog.statusBurnInProgress %></span>
+                </div>
+            </div>
+
+            <% } else if (options && options.mode === 'complete') { %>
+
+            <div class= "pcc-download-signed-form-elements-wrapper">
+                <div class="pcc-margin pcc-status-bar">
+                    <div data-pcc-icon="pcc-icon-circle-check" class="pcc-pull-left"></div>
+                    <!--<%= language.downloadSignedFormDialog.statusDownloadReady %>-->
+                    <span class="pcc-status"><%= language.downloadSignedFormDialog.statusDownloadReady %></span>
+
+                </div>
+                <div class="pcc-margin pcc-form-actions">
+                    <button class="pcc-button" data-pcc-download-signed-form-close>
+                        <%= language.downloadSignedFormDialog.cancel %>
+                    </button>
+                    <button class="pcc-button" data-pcc-download-signed-form-save>
+                        <%= language.downloadSignedFormDialog.save %>
+                    </button>
+                </div>
+            </div>
+
+            <% } else if (options && options.mode === 'error') { %>
+
+            <div class= "pcc-download-signed-form-elements-wrapper">
+                <div class="pcc-margin pcc-status-bar">
+                    <div data-pcc-icon="pcc-icon-warning" class="pcc-pull-left"></div>
+                    <!--<%= language.downloadSignedFormDialog.statusGenericError %>-->
+                    <span class="pcc-status"><%= language.downloadSignedFormDialog.statusGenericError %></span>
+
+                </div>
+                <div class="pcc-margin pcc-form-actions">
+                    <button class="pcc-button" data-pcc-download-signed-form-close>
+                        <%= language.downloadSignedFormDialog.cancel %>
+                    </button>
+                    <button class="pcc-button" data-pcc-download-signed-form-retry>
+                        <%= language.downloadSignedFormDialog.retry %>
+                    </button>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+    </div>
+</div>

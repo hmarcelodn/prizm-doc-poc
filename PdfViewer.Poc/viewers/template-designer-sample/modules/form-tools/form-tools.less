@@ -1,0 +1,17 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+
+.pcc-form-tools {
+    height: 100%;
+    
+    .pcc-button, .pccv button {
+        
+        &.pcc-toggle-value-on {
+            background-color: lighten(@highlight_blue, @highlight_light_adjust);
+        }
+        &.pcc-toggle-value-sticky {
+            background-color: lighten(@highlight_purple, @highlight_light_adjust);
+        }
+        
+    }
+}

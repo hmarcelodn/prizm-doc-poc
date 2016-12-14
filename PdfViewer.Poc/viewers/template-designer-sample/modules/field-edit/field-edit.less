@@ -1,0 +1,85 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_breakpoints.less";
+@import (reference) "../common/_mixins.less";
+
+.pcc-fieldedit-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 10px;
+    background: @background_main;
+    
+    // in the closed state, push the module off screen
+    .transform(translateX(100%));
+    will-change: transform;
+    transition: transform 400ms ease;
+    
+	.pcc-title {
+        padding: 8px 5px;
+        font-size: 1.2em;
+        border-bottom: 1px solid @dark_gray;
+    }
+
+    &.pcc-open {
+        // reset the transform to open
+        .transform(translateX(0));
+    }
+    
+    .legacyView({
+        margin-left: 100%;
+        &.pcc-open { margin-left: 0; }
+    });
+    
+    hr {
+        width: 100%;
+        margin: 8px 0 10px;
+        height: 1px;
+        border: none;
+        background: @dark_gray;
+    }
+    
+    .pcc-margin {
+        margin: 6px 0 4px;
+    }
+    
+    .pcc-pull-right { float: right; }
+
+	.pcc-dropdown .pcc-select-use-global {
+        display: block; 
+        width: 100%;
+        padding: 0;
+        height: auto;
+        border: none;
+	}
+
+   .pcc-label .pcc-select-use-global {
+        line-height: 1;
+        border: 0;
+        margin-left: 0;
+    }
+
+    .pcc-new-group {
+
+        .pcc-button {
+            float: right;
+            padding-left: 3px;
+            padding-right: 3px;
+
+            .pcc-icon {
+                height: 15px;
+                width: 15px;
+            }
+        }
+    }
+}
+
+.pcc-hide {
+    display: none;
+}
+
+.pcc-fieldedit {
+    padding: 5px;
+}

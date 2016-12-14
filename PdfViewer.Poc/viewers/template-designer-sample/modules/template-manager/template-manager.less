@@ -1,0 +1,128 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+
+.pcc-template-manager {
+    width: 100%;
+    height: 100%;
+}
+
+@button_width: 100px;
+@button_height: 2.2em;
+@overflow_width: 20px;
+
+.pcc-form-name-input {
+    position: absolute;
+    left: 5px;
+    right: (@button_width + 10px);
+    
+    input {
+        color: @font_dark;
+        font-size: 1.2em;
+        outline: none;
+        border: none;
+        padding: 5px;
+        width: 100%;
+        background: @white_gray;
+    }
+    
+    input:active, input:focus {
+        outline: 1px solid @highlight_main;
+    }
+}
+
+.pcc-save-container {
+    // center the buttom vertically
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    // place on the right side of the container
+    right: 0;
+
+    width: @button_width;
+    height: @button_height;
+
+    border: 1px solid @light_gray;
+    border-radius: 2px;
+    
+    .pcc-save-button {
+        padding: 0;
+        position: absolute;
+        top: 0;
+        width: 80px;
+
+		.pcc-hide {
+			display: none;
+		}
+    }
+
+    .pcc-save-more {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: @overflow_width;
+        background: @lightest_gray;
+        border-left: 1px solid @light_gray;
+        
+        &:after {
+            content: "";
+            width: 0;
+            height: 0;
+            display: block;
+            margin: 14px 0 0 6px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid @icon_fill;
+        }
+        
+        &:focus {
+            outline: 1px solid @highlight_main;
+            border-color: @highlight_main;
+        }
+        
+        &.pcc-disabled {
+            .opacity(50);
+
+            &, & * {
+                cursor: default;
+            }
+        }
+    }
+
+    .pcc-save-overflow {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: @button_height;
+        background: @white_gray;
+        border-radius: 0 0 2px 2px;
+        border-top: none;
+        text-align: center;
+        
+        text-decoration: none;
+        color: inherit;
+        
+        max-height: 0;
+        font-size: 0.8em;
+        line-height: 2.2;
+        margin-top: 5px;
+        overflow: hidden;
+        .box-sizing(content-box);
+        
+        // set a variable, since we cannot pass a value with a comma to a mixin
+        @transition: max-height 200ms ease, padding 200ms ease;
+        .transition(@transition);
+        
+        &.pcc-open {
+            max-height: 3em;
+            border: 1px solid @light_gray;
+        }
+        
+        &:focus {
+            outline: 1px solid @highlight_main;
+            border-color: @white_gray;
+        }
+    }
+}

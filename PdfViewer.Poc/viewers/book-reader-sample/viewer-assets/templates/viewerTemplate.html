@@ -1,0 +1,78 @@
+<div class="pcc-book-viewer" data-pcc-pagelist></div>
+
+<div class="pcc-tabset pcc-tools-tabset">
+    <div class="pcc-status-bar">
+        <button data-pcc-first-page class="icon-First-Page icon-page" title="<%= language.firstPage %>"></button>
+        <button data-pcc-prev-page class="icon-Previous-Page icon-page" title="<%= language.previousPage %>"></button>
+        <span class="page-chooser">
+            <input type="number" value="1" data-pcc-pageSelect autocorrect="off" autocapitalize="off"> <%= language.of %> <span data-pcc-pageCount>1</span>
+        </span>
+        <button data-pcc-next-page class="icon-Next-Page icon-page" title="<%= language.nextPage %>"></button>
+        <button data-pcc-last-page class="icon-Last-Page icon-page" title="<%= language.lastPage %>"></button>
+    </div>
+    <div class="pcc-menu" data-pcc-menu title="Open menu">
+        <i class="icon-Menu"></i>
+    </div>
+</div>
+
+<div class="pcc-tabset pcc-tabset-search" data-pcc-search="toolbar">
+    <div class="pcc-search-input pcc-clearfix">
+        <div class="pcc-pull-right pcc-search-nav pcc-show-full">
+            <button class="pcc-icon" data-pcc-search-prev title="Search Next"><i class="icon-Previous-Page"></i></button>
+            <div class="pcc-result-display" data-pcc-search-result-display></div>
+            <button class="pcc-icon" data-pcc-search-next title="Search Previous"><i class="icon-Next-Page"></i></button>
+        </div>
+        <div class="pcc-pull-right">
+            <button class="pcc-icon" data-pcc-search="search" title="Search"><i class="icon-Search"></i></button>
+        </div>
+        <button class="pcc-icon" data-pcc-search="back"><i class="icon-Arrow-Back"></i></button>
+        <button class="pcc-icon pcc-show-full" data-pcc-search="list-toggle" title="Toggle Search"><i class="icon-Search-Results"></i></button>
+        <div class="pcc-search-input-wrapper">
+            <div class="pcc-search-progress" data-pcc-search="progress">
+                <div class="pcc-search-progress-thumb"></div>
+            </div>
+            <input type="text" class="pcc-full" data-pcc-search-box placeholder="<%= language.find %>" />
+        </div>
+    </div>
+</div>
+
+<div class="pcc-search-list" data-pcc-search="list">
+    <div class="pcc-results-list-header pcc-row pcc-clearfix">
+        <div class="pcc-col-2 pcc-center"><%= language.page %></div>
+        <div class="pcc-col-10 pcc-center"><%= language.results %></div>
+    </div>
+    <div class="pcc-results-list pcc-clearfix" data-pcc-search-results-list></div>    
+</div>
+
+<div class="main-dropdown-menu" data-pcc-menu-dropdown>
+    <button data-pcc-toggle="dialog-thumbnails" title="Thumbnails">
+        <i class="icon-Thumbnails"></i>
+    </button>
+    <button data-pcc-mouse-tool="AccusoftPanAndEdit" class="pcc-active" title="<%= language.panTool %>"><i class="icon-Pan-Tool"></i></button>
+    <button data-pcc-mouse-tool="AccusoftSelectText" title="Select Text"><i class="icon-Text-Selection"></i></button>
+    <button data-pcc-mouse-tool="AccusoftHighlightAnnotation" data-pcc-default-fill-color="#ffff00" title="Highlight Annotation">
+        <i class="icon-Highlight"></i>
+    </button>
+
+    <button data-pcc-search-button title="Search"><i class="icon-Search"></i></button>
+    <button data-pcc-fit-to-width title="<%= language.fitToPage %>"><i class="icon-Fit-Width"></i></button>
+    <button data-pcc-zoom-in title="Zoom In"><i class="icon-Zoom-In"></i></button>
+    <button data-pcc-zoom-out title="Zoom Out"><i class="icon-Zoom-Out"></i></button>
+</div>
+
+<div class="helper-menu" data-pcc-helper="menu">
+    <button title="<%= language.copyMenu %>" data-pcc-helper="copy"><i class="icon-copy"></i></button>
+    <button title="<%= language.deleteButton %>" data-pcc-helper="delete"><i class="icon-delete"></i></button>
+</div>
+
+<div class="pcc-thumbnail-view" data-pcc-thumbnails></div>
+
+<div class="pcc-copy-overlay" data-pcc-copy="overlay">
+    <div class="pcc-copy-container">
+        <button class="pcc-closer" data-pcc-copy="close">&#215;</button>
+        <div class="pcc-copy-wrapper">
+            <textarea class="pcc-copy-textarea" data-pcc-copy="input"></textarea>
+            <div class="pcc-copy-label"><%= language.copyInstruction %></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,189 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+
+@background: @white_gray;
+@border: @light_gray;
+
+// select boxes
+.pcc-select {
+    position: relative;
+    display: block;
+    vertical-align: middle;
+    cursor: pointer;
+    
+    .pcc-icon {
+        display: block;
+        height: 26px;
+        float: left;
+        background-color: @background;
+        border-radius: 2px 0 0 2px;
+//        border: 1px solid @background_mid; kiril
+        border: 1px solid @border;
+        border-right: none;
+    }
+    
+    .pcc-arrow-down {
+        position: absolute;
+        right: 5px;
+        margin: -14px 0 0;
+    }
+
+    .pcc-toolbar {
+        height: 30px;
+        line-height: 29px;
+        padding: 0 8px;
+        font-weight: bold;
+    }
+    
+    .pcc-label {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+		height: 26px;
+        line-height: 26px;
+        vertical-align: middle;
+        
+        background: @background;
+        border: 1px solid @border;
+        border-radius: 2px;
+        outline: none;
+        
+        text-indent: 3px;
+        overflow: hidden;
+        padding: 0 11px 0 0;
+
+        [data-pcc-value] {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+    
+    &.pcc-align-right {
+        text-align: right;
+    }
+    &.pcc-align-right .pcc-label,
+    &.pcc-align-right .pcc-dropdown {
+        text-align: left;
+    }
+}
+
+// dropdown menus
+@dropdown_width: 100%; //220px;
+@dropdown_height: 150px;
+
+.pcc-dropdown {
+    position: absolute;
+    background: @background;
+    background: fade(@background, 95%);
+    width: @dropdown_width;
+    overflow: auto;
+    z-index: 2;
+    top: 26px;
+    left: 0;
+    visibility: hidden;
+    border: 1px solid @border;
+    border-top: none;
+    
+    .box-shadow(0 2px 2px 0 (fade(@darkest_gray, 30%)));
+    .box-sizing(border-box);
+    max-height:0;
+    @transition: max-height 200ms, visibility 200ms;
+    .transition(@transition);
+    
+    &.pcc-open {
+        height: auto;
+        visibility: visible;
+        max-height:@dropdown_height;
+    }
+    
+    &.pcc-dropup {
+        top: auto;
+        bottom: 26px;
+        border-top: 1px solid @border;
+    }
+    
+    &.pcc-align-right {
+        left: auto;
+        right: 0;
+    }
+    
+    &>div.even {
+        background-color: @lightest_gray;
+    }
+    &>div.odd {
+        background-color: lighten(@lightest_gray, 20%);
+    }
+}
+
+.pcc-dropdown>div,
+.pcc-dropdown label {
+    display: block;
+    line-height: 26px;
+    padding: 0 0 0 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+// color select
+.pcc-select-color {
+    @swatch_margin: 4px;
+    
+    position: relative;
+    
+	.pcc-label>div {
+		position: absolute;
+        left: 0;
+        right: 20px;
+        height: 16px;
+        margin: 5px 0 0px 4px;
+        border-radius: 2px;
+        border: 1px inset @white;
+        overflow: hidden;
+	}
+
+    .pcc-dropdown {
+        overflow: hidden;
+        border: 1px solid @background;
+        padding-bottom: @swatch_margin;
+        
+        max-height: 0;
+        .transition(max-height 200ms);
+        
+        &.pcc-open {
+            height: auto;
+            max-height: @dropdown_height;
+        }
+        
+        div {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin: @swatch_margin 0 0 @swatch_margin;
+            border-radius: 2px;
+            border: 1px inset @border;
+            position: relative;
+        }
+    }
+
+    div.pcc-transparent-effect {
+        background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAlQTFRF/5+f/wAA////wXbI3QAAAGhJREFUeNqM1MERACAIA8GF/oumBM63o5BcYt9jlDvKO8pfyjzKzMpeyu6KPoqGis6KF4pfiqeK7wobCj8KYwqHCqsKzwrzSi6U7Cj5UjKo5FTJspJ3pROU3lC6RekfpaPEHvsL8QQYAJP8CXECfmvmAAAAAElFTkSuQmCC') no-repeat center center !important;
+    }
+}
+
+
+.pcc-arrow-up,
+.pcc-arrow-down {
+    width: 0;
+    height: 0;
+    display: block;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid @icon_fill;
+}
+.pcc-arrow-down {
+    border-bottom: none;
+    border-top: 4px solid @icon_fill;
+}

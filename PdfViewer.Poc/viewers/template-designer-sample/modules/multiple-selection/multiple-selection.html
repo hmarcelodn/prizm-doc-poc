@@ -1,0 +1,95 @@
+<div class="pcc-multipleselection">
+    <div class="pcc-title">
+        <button data-pcc-back data-pcc-icon="pcc-icon-previous-page"></button>
+        <%= language.group %>
+        <button data-pcc-delete class="pcc-button pcc-pull-right" title="<%= language.deleteButton %>">
+            <span data-pcc-icon="pcc-icon-trash"></span>
+        </button>
+        <button data-pcc-duplicate class="pcc-button pcc-pull-right" title="<%= language.duplicate %>">
+            <span data-pcc-icon="pcc-icon-copy"></span>
+        </button>
+    </div>
+
+    <span data-pcc-component="checkboxcollection" 
+          data-pcc-name="multipleRequired"
+          data-pcc-value="required"
+          data-pcc-label="<%= language.required %>"
+          class="pcc-margin"></span>
+
+    <% if (groups) { %>
+        <div class="pcc-margin"><%= language.checkboxGroup %></div>
+        <div data-pcc-component="dropdown"
+             data-pcc-name="group"
+             data-pcc-default="<%= groups.selected %>"
+             class="pcc-select">
+            <div data-pcc-value="none"><%= language.groupNone %></div>
+            <% _.each(groups.list, function(group) { if (group.type !== 'checkbox') { return; }  %>
+                <div data-pcc-value="<%= group.groupId %>"><%= group.displayName %></div>
+            <% }); %>
+            <div data-pcc-value="new"><%= language.checkboxGroupNew %></div>
+        </div>
+
+        <div class="pcc-new-group">
+            <button data-pcc-new-group-submit class="pcc-button pcc-pull-right" title="<%= language.groupSave %>">
+                <span data-pcc-icon="pcc-icon-check"></span>
+            </button>
+            <div data-pcc-component="textinput"
+                 data-pcc-name="newGroup"
+                 data-pcc-placeholder="<%= language.groupEnterName %>"
+                 data-pcc-submit
+                 class="pcc-textbox pcc-margin"></div>
+        </div>
+
+        <div data-pcc-component="checkboxcollection"
+             data-pcc-name="multipleSelections"
+             data-pcc-value="true"
+             data-pcc-label="<%= language.checkboxGroupMultipleSelections %>"
+             class="pcc-margin"></div>
+        <hr>
+    <% } %>
+
+
+    <div class="pcc-margin"><%= language.role %></div>
+    <div data-pcc-component="dropdown"
+         data-pcc-name="formRole"
+         data-pcc-default="<%= formRoles.selected %>"
+         class="pcc-select">
+        <% _.each(formRoles.list, function(formRole) { %>
+            <div data-pcc-value="<%= formRole.formRoleId %>"><%= formRole.displayName %></div>
+        <% }); %>
+    </div>
+
+    <div class="pcc-margin"><%= language.verticalAlignment %></div>
+    <button data-pcc-align="vertical-top" class="pcc-button" title="<%= language.alignTop %>">
+        <span data-pcc-icon="pcc-icon-vertical-align-top"></span>
+    </button>
+    <button data-pcc-align="vertical-center" class="pcc-button" title="<%= language.alignMiddle %>">
+        <span data-pcc-icon="pcc-icon-vertical-align-center"></span>
+    </button>
+    <button data-pcc-align="vertical-bottom" class="pcc-button" title="<%= language.alignBottom %>">
+        <span data-pcc-icon="pcc-icon-vertical-align-bottom"></span>
+    </button>
+
+    <div class="pcc-margin"><%= language.horizontalAlignment %></div>
+    <button data-pcc-align="horizontal-left" class="pcc-button" title="<%= language.alignLeft %>">
+        <span data-pcc-icon="pcc-icon-horizontal-align-left"></span>
+    </button>
+    <button data-pcc-align="horizontal-center" class="pcc-button" title="<%= language.alignCenter %>">
+        <span data-pcc-icon="pcc-icon-horizontal-align-center"></span>
+    </button>
+    <button data-pcc-align="horizontal-right" class="pcc-button" title="<%= language.alignRight %>">
+        <span data-pcc-icon="pcc-icon-horizontal-align-right"></span>
+    </button>
+
+    <div class="pcc-alignment-disabled pcc-margin"><%= language.alignmentOnSamePage %></div>
+
+    <hr>
+
+    <div class="pcc-margin"><%= language.matchSize %></div>
+    <button data-pcc-match-size="horizontal" class="pcc-button" title="<%= language.matchSizeHorizontal %>">
+        <span data-pcc-icon="pcc-icon-match-size-horizontal"></span>
+    </button>
+    <button data-pcc-match-size="vertical" class="pcc-button" title="<%= language.matchSizeVertical %>">
+        <span data-pcc-icon="pcc-icon-match-size-vertical"></span>
+    </button>
+</div>

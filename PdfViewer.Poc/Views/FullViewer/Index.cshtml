@@ -1,0 +1,72 @@
+﻿@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "Full Viewer";
+}
+
+@*@section styles {*@
+    <link rel="stylesheet" href="~/viewers/full-viewer-sample/viewer-assets/css/normalize.min.css">
+    <link rel="stylesheet" href="~/viewers/full-viewer-sample/viewer-assets/css/viewercontrol.css">
+    <link rel="stylesheet" href="~/viewers/full-viewer-sample/viewer-assets/css/viewer.css">
+@*}*@
+
+@*@section scripts {*@
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="viewer-assets/js/jquery-1.10.2.min.js"><\/script>');</script>
+    <script src="~/viewers/full-viewer-sample/viewer-assets/js/underscore.min.js"></script>
+    <script src="~/viewers/full-viewer-sample/viewer-assets/js/jquery.hotkeys.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="viewers/full-viewer-sample/viewer-assets/css/legacy.css">
+        <script src="viewers/full-viewer-sample/viewer-assets/js/html5shiv.js"></script>
+    <![endif]-->
+    <script src="~/viewers/full-viewer-sample/viewer-assets/js/viewercontrol.js"></script>
+    <script src="~/viewers/full-viewer-sample/viewer-assets/js/viewer.js"></script>
+
+    <script type="text/javascript">
+        var viewingSessionId = '@ViewBag.ViewingSessionId';
+        var languageItems = @Html.Raw(ViewBag.LanguageJson);
+        var htmlTemplates = @Html.Raw(ViewBag.TemplateJson);
+        var searchTerms = @Html.Raw(ViewBag.SearchJson);
+        var redactionReasons = @Html.Raw(ViewBag.RedactionReasonJson);
+        var originalDocumentName = '@ViewBag.OriginalDocumentName';
+
+        var sampleConfig = {
+            viewerAssetsPath: "viewers/full-viewer-sample/viewer-assets",
+            languageFile: "en-US.json",
+            imageHandlerUrl: "pcc"
+        };
+
+        var pluginOptions = {
+            documentID: viewingSessionId,
+            language: languageItems,
+            annotationsMode: "LayeredAnnotations",
+            documentDisplayName: originalDocumentName,
+            imageHandlerUrl: sampleConfig.imageHandlerUrl,
+            immediateActionMenuMode: "hover",
+            predefinedSearch: searchTerms,
+            template: htmlTemplates,
+            redactionReasons: redactionReasons,
+            signatureCategories: "Signature,Initials,Title",
+            resourcePath: sampleConfig.viewerAssetsPath + "/img",
+            uiElements: {
+                download: true,
+                fullScreenOnInit: true,
+                advancedSearch: true,
+                attachments: true
+            }
+        };
+
+        $(document).ready(function () {
+            var viewerControl = $("#viewer1").pccViewer(pluginOptions).viewerControl;
+        });
+    </script>
+@*}*@
+
+
+<div id="viewer1"></div>
+
+
+

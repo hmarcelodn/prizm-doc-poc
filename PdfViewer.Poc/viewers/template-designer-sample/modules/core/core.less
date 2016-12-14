@@ -1,0 +1,209 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+@import "../common/_breakpoints.less";
+
+// resets
+html, html > body {
+    margin: 0;
+    padding: 0;
+}
+
+.pccv {
+    button { 
+        color: @font_dark;
+    }
+    
+    button:focus {
+        outline: 1px solid @highlight_main;
+    }
+}
+
+.pccv {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    overflow: auto;
+    
+    background: @background_main;
+    color: @font_dark;
+    font-family: sans-serif;
+    
+    will-change: top, left, width, height;
+}
+
+.pccv.pcc-fullscreen {
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.pccv, .pccv * {
+    .box-sizing(border-box);
+}
+.pccv *:before, .pccv *:after {
+    .box-sizing(inherit);
+}
+
+// style for the main layout (containers, etc.)
+@sidebar_width_px: 220px;
+@sidebar_width_percent: 25%;
+
+.pcc-viewing-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: @header_height + @toolbar_height;
+    z-index: 0;
+}
+
+.pcc-page-list {
+    .fillContainer();
+    z-index: 0;
+    padding-right: @sidebar_width_px;
+}
+.pcc-sidebar {
+    position: relative;
+    display: block;
+    float: right;
+    height: 100%;
+    width: @sidebar_width_px;
+    overflow: hidden;
+    z-index: 1;
+    
+    .box-shadow(0 0px 5px @dark_gray);
+    .legacyView({
+        border-left: 1px solid @light_gray;
+    });
+}
+
+// switch to a percent-based size when the screen is small enough
+@media( max-width: (@sidebar_width_px * 4) ) {
+    .pcc-page-list {
+        padding-right: @sidebar_width_percent;
+    }
+    .pcc-sidebar {
+        width: @sidebar_width_percent;
+    }
+}
+
+.pcc-header {
+    position: relative;
+    width: 100%;
+    height: @header_height;
+    line-height: @header_height;
+    background: @white_gray;
+    border-bottom: 1px solid @light_gray;
+    z-index: 2;
+}
+
+.pcc-toolbarset {
+    position: relative;
+    width: 100%;
+    height: @toolbar_height;
+    line-height: @toolbar_height;
+    z-index: 1;
+    overflow: hidden;
+    
+    background: @background_main;
+    .box-shadow(0 0 5px @dark_gray);
+    .legacyView({
+        border-bottom: 1px solid @light_gray;
+    });
+    
+    .pcc-toolbar {
+        position: relative;
+        height: 100%;
+        z-index: 0;
+    }
+    
+    .pcc-toolbar-right {
+        position: relative;
+        height: 100%;
+        float: right;
+        z-index: 1;
+    }
+}
+
+.pcc-template-manager-container {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    z-index: 1;
+}
+
+.pcc-page-nav-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 200px;
+    max-width: 33%;
+    text-align: right;
+    z-index: 1;
+}
+
+.pcc-zoomfit-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 0;
+}
+.pcc-global-settings-menu-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    
+    display: none;
+    
+    &.pcc-open {
+        display: block;
+    }
+}
+
+/* mark selection handles */
+@handle_size: 15px;
+.pccMarkHandleTopLeft,
+.pccMarkHandleTopCenter,
+.pccMarkHandleTopRight,
+.pccMarkHandleMidLeft,
+.pccMarkHandleMidRight,
+.pccMarkHandleBottomLeft,
+.pccMarkHandleBottomCenter,
+.pccMarkHandleBottomRight,
+.pccMarkHandlePoint,
+.pccMarkHandleTextSelectionStart,
+.pccMarkHandleTextSelectionEnd {
+    position: absolute;
+	width: @handle_size;
+	height: @handle_size;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAS1JREFUeNpiZEAD////D3j37Y//1VffFWBitgq8D4DUQkZGxgPIahmRNBk8+fhr/qpLbw123/mIYiA3GzODqwo/Q5ie0AZBTpZEoCEf4JpBGm+//bG/csdjga+//jLgAuI8rAxl9lIXtMQ4HUEGMIEEr736Pp+QRhB4+eU3w9TjLw2A3uoH8ZmAtiYsPPvagJBGGLj37gfD9lsfEoD6FJjuv/vpf+nFNwZSwPqr70FUAtON198dGEgEIFcCLbRnevf9jwADGeDjj78MTEKcLB/I0czPwczApCHKeYBUjaB415PgOsikKMS+EcggSXOgtiCIWsAEjOwFuVYSF0CmEQNACcVTTWABUN8DcCKR4WdLbPeQ/UDIAFgKE+JiKURP2wrAtL2e5LRNbq4CCDAA8x+OGjgYUjkAAAAASUVORK5CYII=);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 2dppx),
+       screen and (min-resolution: 192dpi) {
+    .pccMarkHandleTopLeft, 
+    .pccMarkHandleTopCenter, 
+    .pccMarkHandleTopRight, 
+    .pccMarkHandleMidLeft, 
+    .pccMarkHandleMidRight, 
+    .pccMarkHandleBottomLeft, 
+    .pccMarkHandleBottomCenter, 
+    .pccMarkHandleBottomRight, 
+    .pccMarkHandlePoint, 
+    .pccMarkHandleTextSelectionStart, 
+    .pccMarkHandleTextSelectionEnd {
+        -webkit-background-size: @handle_size @handle_size;
+                background-size: @handle_size;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhNJREFUeNpiZCAB/P//3wFIOWCRegDEFxgZGS8QaxYLkZbFv/zyO2HDtfcM997+YACyUdQoCXEw6ElyMXz68ecBLzvzQqDQBKAjPuAzlxGPhQpAav6lF98clp5/wwCkCfqCm42ZwUqOhyHKQOSDBC/rRKDlDSRZDLQ04cuvv/3Ne58KEGMhNgfEGIowBGgJgoLeEZvvGbFZeu/dz/ll2x8xfP31l4ESYCnHy1BkK/GBh43ZET3+GWllKXL8d3jIguLeENnnTEiWGrz4/LufmpaCwL13Pxhmn3oFSi/rkcWZkNj9/UeeC1DTUhjYfecjCDuAQhTFYpAASIKchEQsmHnyFcPnn3/r0X0cD8oytASgkNx0/b0CzNdMoPx6/NEXB/RCgRZg9+2PIMof5uOAS8+/MdADgDwHzDUBMIv1QSmPXgCUjkDFMMhiBVomKmxxjZ6d6ALuvv0JohzobjG2AoQuQFmYHUQdAFn8QE+Ci24Wg2oumI8vggpyegGQJ4GVBdjHG0CtB3oAcR5WYG3FvgHsY6DtDyzleA6ABGkNXFX5QdRG5MS1MBrYYqB13PppCj4AenQB3GIQx1WF/wAtE1m6uRgDsDHQiC07FRbaSH6ApTqqBrEKPwgfgPkWxWJQmwjYMizs8pRjoKbloByTaiYGancHDr7G3oA2bwe0QY+rCwNsqeDtwuiIc1LehaF1pw0gwAAhxxe2YRG42QAAAABJRU5ErkJggg==);
+    }
+}

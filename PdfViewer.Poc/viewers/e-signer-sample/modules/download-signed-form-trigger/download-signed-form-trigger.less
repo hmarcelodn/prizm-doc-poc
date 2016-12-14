@@ -1,0 +1,56 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+@import (reference) "../common/_buttons.less";
+@import (reference) "../common/_breakpoints.less";
+
+.pcc-downloadsignedformtrigger-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    left: 0;
+    margin: 10px 5px;
+
+    @download_button_width: 170px;
+    @download_button_height: 24px;
+    @mobile_download_button_width: 100px;
+    .pcc-download-button {
+        position: absolute;
+        right: 0;
+        margin: 0 10px 0 0;
+        width: @download_button_width;
+        height: @download_button_height;
+        .buttonBorder();
+        .buttonShadow();
+
+        &[disabled] {
+            .opacity(50);
+        }
+
+        .pcc-download-icon {
+            width: @icon_size;
+            height: @icon_size;
+            float: left;
+        }
+        .pcc-download-text-desktop,
+        .pcc-download-text-mobile {
+            line-height: @icon_size;
+        }
+
+        .pcc-download-text-mobile {
+            display: none;
+        }
+
+        .mobileView({
+            width: @mobile_download_button_width;
+
+            .pcc-download-text-desktop {
+                display: none;
+            }
+
+            .pcc-download-text-mobile {
+                display: inline;
+            }
+        })
+    }
+}

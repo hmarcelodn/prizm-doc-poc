@@ -1,0 +1,61 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+
+@background: @white_gray;
+@active: @highlight_light;
+@border: @middle_gray;
+
+.pcc-type-context {
+    .pcc-center { text-align: center; }
+    
+    input[data-pcc-esign="textInput"] {
+        margin: 15px auto;
+        width: 100%;
+        max-width: 18em;
+    }
+}
+
+.pcc-esign-text-preview {
+    width: 100%;
+    height: auto;
+    font-size: 2em;
+    line-height: 2em;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    float: none;
+    padding: 0 0px 0 10px;
+    margin: 10px auto;
+    
+    .buttonBorder();
+    cursor: pointer;
+    
+    .buttonShadow();
+    
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 2em;
+        .box-shadow(-35px 0px 10px -20px @background inset);
+    }
+}
+
+.pcc-esign-text-preview.pcc-esign-text-active { 
+    background-color: @active; 
+    border: 1px solid @border;
+    
+    &:after { 
+        .box-shadow(-35px 0px 10px -20px @active inset);
+    }
+}
+
+.pcc-esign-column {
+    width: 50%;
+    display: inline-block;
+    padding: 0 5px;
+}
+

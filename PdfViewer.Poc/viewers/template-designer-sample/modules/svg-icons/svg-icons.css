@@ -1,0 +1,414 @@
+
+.pcc-icon-ban {
+  background-image: url(../img/svg-icons.png);
+  background-position: 0px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-bold {
+  background-image: url(../img/svg-icons.png);
+  background-position: -20px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-calendar {
+  background-image: url(../img/svg-icons.png);
+  background-position: -40px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-check {
+  background-image: url(../img/svg-icons.png);
+  background-position: -60px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-checkbox {
+  background-image: url(../img/svg-icons.png);
+  background-position: -80px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-checklist {
+  background-image: url(../img/svg-icons.png);
+  background-position: -100px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-circle-check {
+  background-image: url(../img/svg-icons.png);
+  background-position: -120px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-circle-star {
+  background-image: url(../img/svg-icons.png);
+  background-position: -140px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-combo-box {
+  background-image: url(../img/svg-icons.png);
+  background-position: -160px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-comment {
+  background-image: url(../img/svg-icons.png);
+  background-position: -180px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-copy {
+  background-image: url(../img/svg-icons.png);
+  background-position: -200px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-document {
+  background-image: url(../img/svg-icons.png);
+  background-position: -220px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-download {
+  background-image: url(../img/svg-icons.png);
+  background-position: -240px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-ellipses {
+  background-image: url(../img/svg-icons.png);
+  background-position: -260px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-empty-circle {
+  background-image: url(../img/svg-icons.png);
+  background-position: -280px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-first-page {
+  background-image: url(../img/svg-icons.png);
+  background-position: -300px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-folder {
+  background-image: url(../img/svg-icons.png);
+  background-position: -320px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-gear {
+  background-image: url(../img/svg-icons.png);
+  background-position: -340px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-grid {
+  background-image: url(../img/svg-icons.png);
+  background-position: -360px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-hand {
+  background-image: url(../img/svg-icons.png);
+  background-position: -380px 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-horizontal-align-center {
+  background-image: url(../img/svg-icons.png);
+  background-position: 0px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-horizontal-align-left {
+  background-image: url(../img/svg-icons.png);
+  background-position: -20px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-horizontal-align-right {
+  background-image: url(../img/svg-icons.png);
+  background-position: -40px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-initials {
+  background-image: url(../img/svg-icons.png);
+  background-position: -60px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-italic {
+  background-image: url(../img/svg-icons.png);
+  background-position: -80px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-last-page {
+  background-image: url(../img/svg-icons.png);
+  background-position: -100px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-loading {
+  background-image: url(../img/svg-icons.png);
+  background-position: -120px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-magic-wand {
+  background-image: url(../img/svg-icons.png);
+  background-position: -140px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-match-size-horizontal {
+  background-image: url(../img/svg-icons.png);
+  background-position: -160px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-match-size-vertical {
+  background-image: url(../img/svg-icons.png);
+  background-position: -180px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-menu {
+  background-image: url(../img/svg-icons.png);
+  background-position: -200px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-minus {
+  background-image: url(../img/svg-icons.png);
+  background-position: -220px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-next-page {
+  background-image: url(../img/svg-icons.png);
+  background-position: -240px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-plus {
+  background-image: url(../img/svg-icons.png);
+  background-position: -260px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-previous-page {
+  background-image: url(../img/svg-icons.png);
+  background-position: -280px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-printer {
+  background-image: url(../img/svg-icons.png);
+  background-position: -300px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-radio-button {
+  background-image: url(../img/svg-icons.png);
+  background-position: -320px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-reorder-handle {
+  background-image: url(../img/svg-icons.png);
+  background-position: -340px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-retry {
+  background-image: url(../img/svg-icons.png);
+  background-position: -360px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-save {
+  background-image: url(../img/svg-icons.png);
+  background-position: -380px -20px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-settings {
+  background-image: url(../img/svg-icons.png);
+  background-position: 0px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-signature {
+  background-image: url(../img/svg-icons.png);
+  background-position: -20px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-sort {
+  background-image: url(../img/svg-icons.png);
+  background-position: -40px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-star {
+  background-image: url(../img/svg-icons.png);
+  background-position: -60px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-strikethrough {
+  background-image: url(../img/svg-icons.png);
+  background-position: -80px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-text-align-center {
+  background-image: url(../img/svg-icons.png);
+  background-position: -100px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-text-align-left {
+  background-image: url(../img/svg-icons.png);
+  background-position: -120px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-text-align-right {
+  background-image: url(../img/svg-icons.png);
+  background-position: -140px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-text-box {
+  background-image: url(../img/svg-icons.png);
+  background-position: -160px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-thunderbolt {
+  background-image: url(../img/svg-icons.png);
+  background-position: -180px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-trash {
+  background-image: url(../img/svg-icons.png);
+  background-position: -200px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-underline {
+  background-image: url(../img/svg-icons.png);
+  background-position: -220px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-upload {
+  background-image: url(../img/svg-icons.png);
+  background-position: -240px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-user {
+  background-image: url(../img/svg-icons.png);
+  background-position: -260px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-vertical-align-bottom {
+  background-image: url(../img/svg-icons.png);
+  background-position: -280px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-vertical-align-center {
+  background-image: url(../img/svg-icons.png);
+  background-position: -300px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-vertical-align-top {
+  background-image: url(../img/svg-icons.png);
+  background-position: -320px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-warning {
+  background-image: url(../img/svg-icons.png);
+  background-position: -340px -40px;
+  width: 20px;
+  height: 20px;
+}
+
+.pcc-icon-x {
+  background-image: url(../img/svg-icons.png);
+  background-position: -360px -40px;
+  width: 20px;
+  height: 20px;
+}
+

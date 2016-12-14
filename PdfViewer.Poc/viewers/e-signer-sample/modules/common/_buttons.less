@@ -1,0 +1,53 @@
+@import (reference) "_variables.less";
+@import (reference) "_mixins.less";
+
+@button_font_size: 0.8rem;
+
+.pcc-button, .pccv button {
+    border: none;
+    color: @font_dark;
+    background-color: transparent;
+    height: 100%;
+    padding: 2px 6px 3px;
+    cursor: pointer;
+    
+    &, & * {
+        cursor: pointer;
+    }
+    
+    .box-shadow(none);
+    .box-sizing(content-box);
+    
+    font-size: @button_font_size;
+    line-height: 1;
+    vertical-align: middle;
+    
+    label {
+        position: relative;
+        top: -5px;
+        padding-left: 3px;
+    }
+    
+    &:focus {
+        .transition(outline 200ms ease);
+    }
+    &:active {
+        outline: 0;
+    }
+    
+    &.pcc-active {
+        background-color: @highlight_light;
+        
+        &:focus {
+            outline: 0;
+        }
+    }
+    
+    &[disabled] {
+        .opacity(50);
+        
+        &, & * {
+            cursor: default;
+        }
+    }
+}

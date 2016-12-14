@@ -1,0 +1,41 @@
+// color scheme
+@middle_gray: #7f8b91;                      // #7f8b91
+@dark_gray: darken(@middle_gray, 20%);      // #4f575b
+@darkest_gray: darken(@middle_gray, 40%);   // #1f2325
+@light_gray: lighten(@middle_gray, 20%);    // #b6bdc0
+@lightest_gray: lighten(@middle_gray, 38%); // #e7e9eb
+@white_gray: lighten(@middle_gray, 42%);    // #f2f3f4
+@white: #fff;                               // #ffffff
+
+@highlight_blue: #98c4e1;
+@highlight_green: #add671;
+@highlight_purple: #a2a6e4;
+@highlight_red: #e24d4d;
+
+@highlight_light_adjust: 10%;
+@highlight_dark_adjust: 20%;
+@highlight_main: @highlight_blue;
+@highlight_light: lighten(@highlight_main, @highlight_light_adjust);
+@highlight_dark: darken(@highlight_main, @highlight_dark_adjust);
+
+@highlight_error: #eb4d5c;
+@highlight_success: #54bb64;
+@highlight_warn: #edb431;
+@highlight_message: #439fe0;
+
+@icon_size: 20px;
+@icon_size_mobile: 15px;
+@icon_fill: @dark_gray;
+
+// theme-based variables
+@background_main: @lightest_gray;
+@background_dark: @dark_gray;
+
+@font_dark: @dark_gray;
+@font_white: @white;
+
+@header_height: 50px;
+@header_height_mobile: (30px * 2);
+@footer_height: 50px;
+@toolbar_height: 40px;
+@sidebar_margin: 5px;

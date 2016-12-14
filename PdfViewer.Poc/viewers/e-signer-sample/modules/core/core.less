@@ -1,0 +1,289 @@
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+@import "../common/_breakpoints.less";
+
+// resets
+html, html > body {
+    margin: 0;
+    padding: 0;
+}
+
+.pccv {
+    button { 
+        color: @font_dark;
+    }
+    
+    button:focus {
+        outline: 1px solid @highlight_main;
+    }
+}
+
+.pccv {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    overflow: auto;
+    
+    background: @background_main;
+    color: @font_dark;
+    font-family: sans-serif;
+    
+    will-change: top, left, width, height;
+}
+
+.pccv.pcc-fullscreen {
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.pccv, .pccv * {
+    .box-sizing(border-box);
+}
+.pccv *:before, .pccv *:after {
+    .box-sizing(inherit);
+}
+
+// style for the main layout (containers, etc.)
+@sidebar_width_px: 220px;
+@sidebar_width_percent: 25%;
+
+.pcc-viewing-area {
+    position: absolute;
+    top: @header_height + @toolbar_height;
+    left: 0;
+    bottom: @footer_height;
+    width: 100%;
+    z-index: 0;
+}
+
+.pcc-page-list {
+    .fillContainer();
+    z-index: 0;
+    
+    &.pcc-sidebar-offset {
+        padding-left: @sidebar_width_px;
+
+        .mobileView({
+            padding-left: 0;
+        });
+    }
+}
+
+.pcc-sidebar {
+    background-color: @white_gray;
+    position: relative;
+    display: block;
+    width: 0;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    z-index: 1;
+    
+    &.pcc-open {
+        width: @sidebar_width_px;
+
+        .box-shadow(0 0 5px @dark_gray);
+        .legacyView({
+            border-right: 1px solid @light_gray;
+        });
+
+        .mobileView({
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            top: 0;
+        });
+    }
+}
+
+// switch to a percent-based size when the screen is small enough
+@media( max-width: (@sidebar_width_px * 4) ) {
+    .pcc-page-list.pcc-sidebar-offset {
+        padding-left: @sidebar_width_percent;
+    }
+    .pcc-sidebar.pcc-open {
+        width: @sidebar_width_percent;
+    }
+}
+
+.mobileView({
+    .pcc-page-list.pcc-sidebar-offset {
+        padding-left: 0;
+    }
+    .pcc-sidebar.pcc-open {
+        width: 100%;
+    }    
+});
+
+
+.pcc-header {
+    position: relative;
+    width: 100%;
+    height: @header_height;
+    line-height: @header_height;
+    background: @white_gray;
+    border-bottom: 1px solid @light_gray;
+    z-index: 2;
+    
+    .mobileView({
+        font-size: 0.9em;
+        height: @header_height_mobile;
+        line-height: 30px;
+
+        .pcc-icon {
+            height: @icon_size_mobile;
+            width: @icon_size_mobile;
+        }
+
+        [data-pcc-pagenav-first],
+        [data-pcc-pagenav-last] {
+            display: none;
+        }
+    });
+    
+    // Chrome stable 42 requires this to be a layer,
+    // in order to support touch-based scrolling on 
+    // Windows and Android
+    will-change: opacity;
+}
+
+.pcc-toolbarset {
+    position: relative;
+    width: 100%;
+    height: @toolbar_height;
+    line-height: @toolbar_height;
+    z-index: 1;
+    overflow: hidden;
+    padding: 0 5px;
+    
+    background: @background_main;
+    .box-shadow(0 0 5px @dark_gray);
+    .legacyView({
+        border-bottom: 1px solid @light_gray;
+    });
+    
+    .pcc-toolbar {
+        position: relative;
+        height: 100%;
+        z-index: 0;
+    }
+    
+    .pcc-toolbar-right {
+        position: relative;
+        height: 100%;
+        float: right;
+        z-index: 1;
+    }
+
+    .mobileView({
+        font-size: 0.9em;
+        height: (@toolbar_height - 10);
+        line-height: (@toolbar_height - 10);
+
+        .pcc-icon {
+            height: 15px;
+            width: 15px;
+        }
+    });
+    
+    // Chrome stable 42 requires this to be a layer,
+    // in order to support touch-based scrolling on 
+    // Windows and Android
+    will-change: opacity;
+}
+
+.pcc-page-nav-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    max-width: 33%;
+    text-align: right;
+    z-index: 1;
+
+    .mobileView({
+        top: @header_height_mobile / 2;
+        width: 50%;
+        max-width: none;
+    });
+}
+
+.pcc-zoomfit-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 0;
+
+    .mobileView({
+        text-align: left;
+        top: @header_height_mobile / 2;
+        width: 50%;
+        
+        li { text-align: center;}
+    });
+}
+
+.pcc-profile-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+
+    display: none;
+
+    &.pcc-open {
+        display: block;
+    }
+}
+
+.pcc-download-signed-form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+
+    display: none;
+
+    &.pcc-open {
+        display: block;
+    }
+}
+
+.pcc-footer {
+    position: absolute;
+    width: 100%;
+    height: @footer_height;
+    background: @white_gray;
+    z-index: 2;
+    bottom: 0;
+    overflow: hidden;
+    
+    .box-shadow(0 0 5px @dark_gray);
+    .legacyView({
+        border-top: 1px solid @light_gray;
+    });
+}
+
+.pcc-footer-content {
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;   
+}
+
+.pcc-fillprogress-container,
+.pcc-downloadsignedform-container {
+    position: absolute;
+    width: 100%;
+}

@@ -1,0 +1,30 @@
+@import (inline) "pikaday.css";
+
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+
+.pcc-datepicker {
+    // resets for viewer overrides
+    button.pika-button {
+        height: auto;
+        widtrh: 100%;
+        .box-sizing(border-box);
+        font-size: 1em;
+    }
+    button.pika-next, button.pika-prev {
+        height: 2em;
+        .box-sizing(border-box);
+    }
+    
+    // overrides for default styles of Pikaday,
+    // in order to match the viewer theme
+    .is-today .pika-button {
+        color: @highlight_message;
+    }
+    
+    .pika-button:hover {
+        // Pikaday uses important here, so we have to as well
+        background-color: @highlight_light !important;
+        color: @font_dark !important;
+    }
+}

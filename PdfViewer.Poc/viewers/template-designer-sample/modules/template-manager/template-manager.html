@@ -1,0 +1,18 @@
+<div class="pcc-template-manager">
+    <span class="pcc-form-name-input" 
+        data-pcc-component="textinput"
+        data-pcc-name="templateName"
+        data-pcc-placeholder="<%= data.language.unnamedTemplate %>">
+    </span>
+    <div class="pcc-save-container">
+        <button class="pcc-button pcc-save-button" data-pcc-save-template>
+            <span data-pcc-icon="pcc-icon-save"></span>
+            <div data-pcc-icon="pcc-icon-loading" class="pcc-icon pcc-loader pcc-hide"></div>
+            <label data-pcc-save-label><%= data.language.save %></label>
+            <span data-pcc-icon="pcc-icon-check" class="pcc-hide"></span>
+            <label data-pcc-saved-label class="pcc-hide"><%= data.language.saved %></label>
+        </button>    
+        <a href="#" class="pcc-save-more pcc-disabled" data-pcc-save-more></a>
+        <a href="#" class="pcc-save-overflow" data-pcc-save-copy><%= data.language.saveCopy %></a>
+    </div>
+</div>

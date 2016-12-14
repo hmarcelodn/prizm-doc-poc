@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "FlexPaper";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/FlexPaper/flexpaper_flat.css" />
+<script type="text/javascript" src="~/Scripts/FlexPaper/jquery.min.js"></script>
+<script type="text/javascript" src="~/Scripts/FlexPaper/jquery.extensions.min.js"></script>
+<script type="text/javascript" src="~/Scripts/FlexPaper/flexpaper.js"></script>
+<script type="text/javascript" src="~/Scripts/FlexPaper/flexpaper_handlers.js"></script>
+
+<h2>FlexPaper</h2>
+
+<div id="documentViewer"></div>
+
+<script type="text/javascript">
+    $.noConflict()
+
+    jQuery('#documentViewer').FlexPaperViewer({
+        config: {
+            jsDirectory: "/Scripts/FlexPaper/",
+            cssDirectory: "/Content/FlexPaper/",
+            localeDirectory: "/Content/FlexPaper/locale/",
+            IMGFiles: "/FlexPaper/images/",
+            PDFFile: "/FlexPaper/pdf/Paper.pdf",
+            BottomToolbar: '/FlexPaper/UI_flexpaper_annotations.html',
+            Scale: 0.6,
+            ZoomTransition: "easeOut",
+            ZoomTime: 0.5,
+            ZoomInterval: 0.1,
+            FitPageOnLoad: false,
+            FitWidthOnLoad: false,
+            FullScreenAsMaxWindow: true,
+            ProgressiveLoading: true,
+            MinZoomSize: 0.2,
+            MaxZoomSize: 5,
+            SearchMatchAll: false,
+            InitViewMode: 'Portrait',
+
+            ViewModeToolsVisible: true,
+            ZoomToolsVisible: true,
+            NavToolsVisible: true,
+            CursorToolsVisible: true,
+            SearchToolsVisible: true,
+
+            localeChain: "en_US"
+        }
+    });
+
+</script>

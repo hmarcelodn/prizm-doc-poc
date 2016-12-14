@@ -1,0 +1,72 @@
+@import (reference) "../common/_breakpoints.less";
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+@import (reference) "../common/_overlay.less";
+
+.pcc-download-signed-form-menu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  .pcc-overlay {
+    .overlay();
+
+    .pcc-overlay-container {
+      max-width: 400px;
+      max-height: 160px;
+      width: 100%;
+      height: 100%;
+
+      .legacyView({
+        width: 600px;
+        height: 400px;
+      });
+
+      overflow: visible;
+
+      & > div {
+        position: relative;
+        padding: 20px;
+      }
+    }
+  }
+
+  .pcc-pull-left { float: left; }
+
+  .pcc-margin {
+    margin: 6px 0 4px;
+  }
+
+  .pcc-status-bar {
+    line-height: 20px;
+  }
+
+  .pcc-status {
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+}
+
+.pcc-download-signed-form-title {
+  display: inline-block;
+  padding: 0 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.pcc-download-signed-form-elements-wrapper {
+  .pcc-form-actions {
+    text-align: right;
+  }
+}
+
+.pcc-download-signed-form-close-button {
+  display: inline-block;
+  position: absolute;
+  height: auto !important;
+  top: 5px;
+  right: 0;
+  font-size: 1.2em;
+  background: @white_gray;
+}

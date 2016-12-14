@@ -1,0 +1,152 @@
+@import (reference) "../common/_breakpoints.less";
+@import (reference) "../common/_variables.less";
+@import (reference) "../common/_mixins.less";
+@import (reference) "../common/_overlay.less";
+
+.pcc-global-settings-menu {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+
+    .pcc-overlay {
+        .overlay();
+    }
+
+    .pcc-overlay-container {
+        height: 96%;
+        max-width: 500px;
+        max-height: 350px;
+        overflow: visible;
+        width: 96%;
+
+        .legacyView({
+            width: 500px;
+            height: 350px;
+        });
+
+        overflow: auto;
+
+        & > div {
+            .fillContainer();
+            max-height: 100%;
+            padding: 5px;
+        }
+    }
+
+    .pcc-global-settings-close-button {
+        height: auto;
+        position: absolute;
+        right: 0;
+        top: 5px;
+        z-index: 5;
+    }
+
+    .pcc-global-settings-title {
+        clear: both;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 20px;
+    }
+
+    .pcc-global-settings-tabs {
+        border-bottom: 1px solid @middle_gray;
+        height: 30px;
+        margin: 0 20px;
+
+        .pcc-button {
+            background-color: @light_gray;
+            border: 1px solid @middle_gray;
+            height: 28px;
+            outline: none;
+            padding: 0 10px;
+
+            &.pcc-toggle-value-on {
+                background-color: @lightest_gray;
+                border-bottom-color: transparent;
+            }
+        }
+    }
+
+    .pcc-global-settings-pane {
+        bottom: 50px;
+        left: 0;
+        overflow: auto;
+        position: absolute;
+        right: 0;
+        top: 100px;
+    }
+
+    .pcc-global-settings-elements-wrapper {
+        display: inline-block;
+        float: left;
+        margin: 0 auto;
+        padding: 0 20px;
+        vertical-align: middle;
+        width: 50%;
+
+        .pcc-margin {
+            margin: 6px 0 4px;
+        }
+
+        .pcc-pull-right {
+            float: right;
+        }
+
+        .pcc-new-role {
+
+            .pcc-textbox {
+                margin: 0;
+
+                input {
+                    height: 26px;
+                }
+            }
+
+            .pcc-button {
+                float: right;
+                padding-left: 3px;
+                padding-right: 3px;
+            }
+        }
+
+        .pcc-global-settings-formRole {
+            overflow: hidden;
+            padding: 4px 0;
+
+            .pcc-button {
+                .opacity(75);
+                font-size: 19px;
+                margin-top: -3px;
+                padding-bottom: 0;
+                padding-top: 0;
+
+                .legacyView({
+                    margin-top: 0;
+                });
+            }
+        }
+
+        .pcc-global-settings-formRole-none {
+            .opacity(80);
+            font-style: italic;
+            padding: 4px 0;
+        }
+    }
+
+    .pcc-global-settings-controls {
+        bottom: 12px;
+        height: 30px;
+        position: absolute;
+        right: 10px;
+
+        .pcc-button {
+            padding: 0 10px;
+        }
+
+        [data-pcc-global-settings-done] {
+            background: @white;
+            border: 1px solid @light_gray;
+        }
+    }
+}
